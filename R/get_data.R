@@ -15,7 +15,7 @@
 #'
 #' @return A \code{data_frame}.
 #'
-get_gho_data_ <- function(dimension, code, filter, ...) {
+get_gho_data_ <- function(dimension, code, filter = NULL, ...) {
 
   stopifnot(
     dimension %in% get_gho_dimensions(),

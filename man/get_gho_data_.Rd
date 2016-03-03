@@ -5,9 +5,9 @@
 \alias{get_gho_data_}
 \title{Returns GHO Data}
 \usage{
-get_gho_data_(dimension, code, filter, ...)
+get_gho_data_(dimension, code, filter = NULL, ...)
 
-get_gho_data(dimension, code, filter, ...)
+get_gho_data(dimension, code, filter = NULL, ...)
 }
 \arguments{
 \item{dimension}{A GHO dimension.}
