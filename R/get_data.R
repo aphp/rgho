@@ -15,14 +15,14 @@
 #'
 #' @return A \code{data_frame}.
 #'
-get_gho_data_ <- function(dimension, code, filter = NULL, ...) {
+get_gho_data_ <- function(code, dimension = "GHO", filter = NULL, ...) {
 
   stopifnot(
     dimension %in% get_gho_dimensions(),
     code %in% get_gho_codes(dimension = dimension)
   )
 
-  res_data <- get_gho(
+  get_gho(
     url = build_gho_url(
       dimension = dimension,
       code = code,
