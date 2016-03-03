@@ -5,14 +5,14 @@
 \alias{get_gho_data_}
 \title{Returns GHO Data}
 \usage{
-get_gho_data_(dimension, code, filter = NULL, ...)
+get_gho_data_(code, dimension = "GHO", filter = NULL, ...)
 
-get_gho_data(dimension, code, filter = NULL, ...)
+get_gho_data(code, dimension = "GHO", filter = NULL, ...)
 }
 \arguments{
-\item{dimension}{A GHO dimension.}
-
 \item{code}{A GHO code.}
+
+\item{dimension}{A GHO dimension.}
 
 \item{filter}{A named list of filtering parameters (see details).}
 
