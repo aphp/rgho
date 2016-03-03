@@ -1,6 +1,5 @@
-#' @export
-as.data.frame.gho <- function(x, row.names = NULL, optional = FALSE, ...) {
-  data.frame(
+to_data_frame <- function(x, row.names = NULL, optional = FALSE, ...) {
+  dplyr::data_frame(
     Label = attr(x, "label"),
     ID = as.vector(x)
   )
@@ -8,5 +7,6 @@ as.data.frame.gho <- function(x, row.names = NULL, optional = FALSE, ...) {
 
 #' @export
 print.gho <- function(x, ...) {
-  print(as.data.frame(x), ...)
+  cat(sprintf("A 'GHO' object of %i elements.\n\n", length(x)))
+  print(to_data_frame(x), ...)
 }

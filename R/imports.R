@@ -18,4 +18,6 @@
 #' @importFrom magrittr "%<>%"
 #' @importFrom magrittr "extract2"
 #'
+#' @importFrom dplyr data_frame
+#'
 NULL
