@@ -14,8 +14,58 @@ vignette: >
 library(rgho)
 ```
 
-`rgho` is an `R` package to access WHO GHO data from R via the Athena web service, an API providing a simple query interface to the World Health Organization's data and statistics content.
+`rgho` is an `R` package to access [WHO GHO data](http://www.who.int/gho/en/) from R via the Athena web service, an API providing a simple query interface to the World Health Organization's data and statistics content.
 
-# The Global Health Observatory
+## The Global Health Observatory
 
-The GHO contains data
+As stated by the WHO website: *The GHO data repository contains an extensive list of indicators, which can be selected by theme or through a multi-dimension query functionality. It is the World Health Organization's main health statistics repository*.
+
+## Data structure
+
+GHO data is structured in indicators structured in dimensions. The list of dimensions is available in `vignette("dimensions", package = "rgho")`, the list of indicators for the *GHO* dimension in `vignette("codes-gho", package = "rgho")`).
+
+It is possible to access dimensions with `get_gho_dimensions()`:
+
+```{r}
+head(get_gho_dimensions())
+```
+
+And codes for a given dimension with `get_gho_codes()`:
+
+```{r}
+head(get_gho_codes(dimension = "COUNTRY"))
+```
+
+## Data download
+
+An indicator can be downloaded as a `data_frame` with `get_gho_data()`:
+
+```{r}
+head(
+  get_gho_data(
+    dimension = "GHO",
+    code = "MDG_0000000001"
+  )
+)
+```
+
+## Filter requests
+
+The `filter` argument in `get_gho_data()` allows request filtering:
+
+```{r}
+head(
+  get_gho_data(
+    dimension = "GHO",
+    code = "MDG_0000000001",
+    filter = list(
+      REGION = "EUR",
+      YEAR = "2015"
+    )
+  )
+)
+```
+
+## Other parameters
+
+Other parameters than `format` can be specified to `get_gho_data()` (such as `apikey`, `asof`...). Parameters are listed on [this page](http://apps.who.int/gho/data/node.resources.api). Note that most parameters are not available to users.
