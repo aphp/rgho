@@ -1,12 +1,13 @@
 # rgho - Access WHO Global Health Observatory Data From R
 
-`rgho` is an `R` package to access WHO GHO data from R via the Athena web service,     an API providing a simple query interface to the World Health Organization's data and statistics content.
+`rgho` is an `R` package to access WHO GHO data from R via the Athena web service, an API providing a simple query interface to the World Health Organization's data and statistics content.
 
 You can install:
 
   * the latest released version from CRAN with:
 
 ```r
+# still not on CRAN...
 install.packages("rgho")
 ```
 
@@ -19,7 +20,13 @@ devtools::install_github("pierucci/rgho")
 ## Main features
 
   * List available dimensions and codes with `get_gho_dimensions()` and `get_gho_codes()`.
-  * Download data with `get_gho_data()`
+  * Download data with `get_gho_data()`.
+  
+## Documentation
+
+  * Introduction in `vignette("intro", package = "rgho")`).
+  * List of GHO dimensions in `vignette("dimensions", package = "rgho")`).
+  * List of codes for the GHO dimension in `vignette("codes-gho", package = "rgho")`).
 
 ## Devs
 

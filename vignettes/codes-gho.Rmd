@@ -1,0 +1,22 @@
+---
+title: "Codes for the GHO Dimension"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Codes for the GHO Dimension}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+Available codes for the GHO dimension:
+
+```{r, echo=FALSE, include=FALSE}
+library(rgho)
+library(knitr)
+```
+
+```{r, echo=FALSE}
+kable(as.data.frame(get_gho_codes(dimension = "GHO")))
+```

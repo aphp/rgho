@@ -1,11 +1,11 @@
 ---
-title: "Access WHO GHO Data From R"
+title: "Introduction"
 date: "`r Sys.Date()`"
 output:
   rmarkdown::html_vignette:
     toc: true
 vignette: >
-  %\VignetteIndexEntry{Access WHO GHO Data From R}
+  %\VignetteIndexEntry{Introduction}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
@@ -13,3 +13,9 @@ vignette: >
 ```{r, echo=FALSE, include=FALSE}
 library(rgho)
 ```
+
+`rgho` is an `R` package to access WHO GHO data from R via the Athena web service, an API providing a simple query interface to the World Health Organization's data and statistics content.
+
+# The Global Health Observatory
+
+The GHO contains data

@@ -1,0 +1,23 @@
+---
+title: "Dimension Names"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Dimension Names}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+Available GHO dimensions:
+
+```{r, echo=FALSE, include=FALSE}
+library(rgho)
+library(knitr)
+```
+
+```{r, echo=FALSE}
+kable(as.data.frame(get_gho_dimensions()))
+```
+
