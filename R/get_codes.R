@@ -22,7 +22,7 @@ get_gho_codes_ <- function(dimension) {
     xml2::xml_contents() %>%
     as.character()
 
-  structure(res, labels = labels)
+  structure(res, labels = labels, class = "gho")
 }
 
 #' @rdname get_gho_codes_
