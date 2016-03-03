@@ -18,5 +18,5 @@ library(knitr)
 ```
 
 ```{r, echo=FALSE}
-kable(as.data.frame(get_gho_codes(dimension = "GHO")))
+kable(rgho:::to_data_frame(get_gho_codes(dimension = "GHO")))
 ```

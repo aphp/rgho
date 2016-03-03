@@ -18,6 +18,5 @@ library(knitr)
 ```
 
 ```{r, echo=FALSE}
-kable(as.data.frame(get_gho_dimensions()))
+kable(rgho:::to_data_frame(get_gho_dimensions()))
 ```
-
