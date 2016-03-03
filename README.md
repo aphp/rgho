@@ -30,4 +30,4 @@ devtools::install_github("pierucci/rgho")
 
 ## Devs
 
-[Antoine Filipović-Pierucci](https://pierucci.github.io/).
+[Antoine Filipović-Pierucci](https://pierucci.github.io/), [Kevin Zarca](http://www.urc-eco.fr/Kevin-ZARCA,402).
