@@ -1,0 +1,12 @@
+
+language: R
+sudo: false
+cache: packages
+
+env:
+  matrix:
+    - RVERSION=release
+
+branches:
+  only:
+    - master
