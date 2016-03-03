@@ -10,7 +10,7 @@ get_proxy_list(url)
 \item{url}{The url to access, as a character string.}
 }
 \value{
-A list of proxy.
+A list of proxy, or \code{NULL} if not proxy are found.
 }
 \description{
 Tries to find the local proxy settings to access a given url.

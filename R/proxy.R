@@ -4,12 +4,16 @@
 #'
 #' @param url The url to access, as a character string.
 #'
-#' @return A list of proxy.
+#' @return A list of proxy, or \code{NULL} if not proxy are found.
 #'
 get_proxy_list <- function(url) {
-  parse_proxy_string(
-    curl::ie_get_proxy_for_url(target_url = url)
-  )
+  proxy_string <- curl::ie_get_proxy_for_url(target_url = url)
+
+  if (is.null(proxy_string)) {
+    return(NULL)
+  } else {
+    return(parse_proxy_string(proxy_string))
+  }
 }
 
 #' Parse Proxy IP From a Character String

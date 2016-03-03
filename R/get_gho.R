@@ -9,10 +9,16 @@
 get_gho_ <- function(url) {
   proxy_list <- get_proxy_list(url)
 
-  for (i in seq_along(proxy_list)) {
-    res <- httr::GET(url = url, config = proxy_list[[i]])
-    if (! httr::http_error(res)) {
-      break
+  if (is.null(proxy_list)) {
+    res <- httr::GET(url = url)
+
+  } else {
+    for (i in seq_along(proxy_list)) {
+      res <- httr::GET(url = url, config = proxy_list[[i]])
+
+      if (! httr::http_error(res)) {
+        break
+      }
     }
   }
   if (httr::http_error(res)) {
