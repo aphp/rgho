@@ -36,6 +36,16 @@ And codes for a given dimension with `get_gho_codes()`:
 get_gho_codes(dimension = "COUNTRY")
 ```
 
+## Search
+
+The function `search_dimensions()` and `search_codes()` research a term in dimension or codes labels, respectively.
+
+```{r}
+search_dimensions("region")
+search_codes("GHO", "neonatal")
+```
+
+
 ## Data download
 
 An indicator can be downloaded as a `data_frame` with `get_gho_data()`. Here we use `MDG_0000000001`, *Infant mortality rate (probability of dying between birth and age 1 per 1000 live births)*:
