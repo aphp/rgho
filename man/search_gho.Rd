@@ -10,7 +10,7 @@ search_gho(gho, x)
 
 search_dimensions(x)
 
-search_codes(dimension, x)
+search_codes(x, dimension = "GHO")
 }
 \arguments{
 \item{gho}{An object from \code{\link{get_gho_dimensions}} or
