@@ -42,9 +42,8 @@ The function `search_dimensions()` and `search_codes()` research a term in dimen
 
 ```{r}
 search_dimensions("region")
-search_codes("GHO", "neonatal")
+search_codes("neonatal", dimension = "GHO")
 ```
-
 
 ## Data download
 
