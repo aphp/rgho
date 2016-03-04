@@ -16,7 +16,7 @@ install.packages("rgho")
   * the latest development version from github with:
 
 ```r
-devtools::install_github("pierucci/rgho")
+devtools::install_github("pierucci/rgho", build_vignettes = TRUE)
 ```
 
 ## Main features
