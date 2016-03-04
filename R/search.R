@@ -18,7 +18,7 @@ search_gho <- function(gho, x) {
   structure(
     gho[pos],
     label = attr(gho, "label")[pos],
-    class = "GHO"
+    class = "gho"
   )
 }
 
