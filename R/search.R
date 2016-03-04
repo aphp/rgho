@@ -29,6 +29,6 @@ search_dimensions <- function(x) {
 
 #' @rdname search_gho
 #' @export
-seach_codes <- function(dimension, x) {
+search_codes <- function(dimension, x) {
   search_gho(get_gho_codes(dimension), x)
 }
