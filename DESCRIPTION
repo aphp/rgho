@@ -9,7 +9,7 @@ Description: Access WHO GHO data from R via the Athena web service,
 License: GPL (>= 3)
 LazyData: TRUE
 Depends: R (>= 3.2.2)
-Imports: httr, curl, xml2, memoise, readr, magrittr, dplyr
+Imports: httr, curl, xml2, memoise, readr, magrittr, dplyr, tidyr
 Suggests: testthat, knitr, rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1

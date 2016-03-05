@@ -15,9 +15,12 @@
 #' @importFrom readr read_csv
 #'
 #' @importFrom magrittr "%>%"
+#' @importFrom magrittr "%$%"
 #' @importFrom magrittr "%<>%"
 #' @importFrom magrittr "extract2"
 #'
 #' @importFrom dplyr data_frame
+#'
+#' @importFrom tidyr spread_
 #'
 NULL

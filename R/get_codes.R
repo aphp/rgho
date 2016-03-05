@@ -1,8 +1,16 @@
 #' Returns GHO Codes for a Given Dimension
 #'
 #' @param dimension A GHO dimension.
+#' @param .data For \code{filter}, \code{gho} object to
+#'   filter.
+#' @param  ... Logical predicates. Multiple conditions are
+#'   combined with &.
+#' @param .dots Used to work around non-standard evaluation.
+#'   See vignette("nse", package = "dplyr") for details.
 #'
-#' @return GHO codes as a character vector, and labels as a \code{label} attribute.
+#' @return GHO codes as a character vector, labels as a
+#'   \code{label} attribute and other attributes in a \code{attrs}
+#'   attribute, as a \code{data_frame}.
 get_gho_codes_ <- function(dimension) {
   stopifnot(
     dimension %in% get_gho_dimensions()
@@ -22,7 +30,11 @@ get_gho_codes_ <- function(dimension) {
     xml2::xml_contents() %>%
     as.character()
 
-  structure(res, labels = labels, class = "gho")
+  build_gho(
+    res,
+    labels = labels,
+    attrs = get_attrs(xml_codes)
+  )
 }
 
 #' @rdname get_gho_codes_

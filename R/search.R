@@ -15,10 +15,10 @@ search_gho <- function(gho, x) {
     useBytes = TRUE,
     fixed = TRUE
   )
-  structure(
+
+  build_gho(
     gho[pos],
-    label = attr(gho, "label")[pos],
-    class = "gho"
+    label = attr(gho, "label")[pos]
   )
 }
 

@@ -1,22 +1,13 @@
 #' Get Dimension Attributes
 #'
-#' @param dimension A GHO dimension.
+#' @param dimension A parsed XML list of \code{Code} elements.
 #'
 #' @return A \code{data_frame} of attributes.
-#' @export
 #'
-get_attrs <- function(dimension = "GHO") {
-  xml_dim <- get_gho(
-    url = build_gho_url(dimension = dimension)
-  ) %>%
-    httr::content() %>%
-    xml2::xml_find_all("//Dimension") %>%
-    xml2::xml_find_all("//Code")
+get_attrs_ <- function(xml_dim) {
 
   codes <- xml_dim %>%
     xml2::xml_attr("Label")
-
-  browser()
 
   dplyr::data_frame(
     code = rep(codes,
@@ -28,5 +19,9 @@ get_attrs <- function(dimension = "GHO") {
       xml2::xml_find_all("./Attr/Value/Display") %>%
       xml2::xml_contents() %>%
       as.character
-  )
+  ) %>%
+    tidyr::spread_(key_col = "key", value_col = "value")
 }
+
+#' @rdname get_attrs_
+get_attrs <- memoise::memoise(get_attrs_)

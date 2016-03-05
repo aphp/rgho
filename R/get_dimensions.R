@@ -17,7 +17,9 @@ get_gho_dimensions_ <- function() {
     xml2::xml_contents() %>%
     as.character()
 
-  structure(res, labels = labels, class = "gho")
+  build_gho(
+    res, labels = labels
+  )
 }
 
 #' @rdname get_gho_dimensions_
