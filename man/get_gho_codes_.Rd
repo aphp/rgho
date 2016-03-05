@@ -6,7 +6,7 @@
 \alias{get_gho_codes_}
 \title{Returns GHO Codes for a Given Dimension}
 \usage{
-filter_.gho(.data, ..., .dots)
+\method{filter_}{gho}(.data, ..., .dots)
 
 get_gho_codes_(dimension)
 

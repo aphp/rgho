@@ -21,7 +21,10 @@
 #'
 #' @importFrom dplyr data_frame
 #' @importFrom dplyr filter_
+#' @importFrom dplyr filter
 #'
 #' @importFrom tidyr spread_
 #'
 NULL
+
+#' @export filter
