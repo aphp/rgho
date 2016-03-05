@@ -5,17 +5,17 @@
 #' @param attr A \code{data_frame} of attributes.
 #'
 #' @return A \code{gho} object.
-build_gho <- function(x, label, attrs = NULL) {
+build_gho <- function(x, labels, attrs = NULL) {
   stopifnot(
-    length(dim(x)) == 1,
-    length(dim(label)) == 1,
+    is.null(dim(x)),
+    is.null(dim(labels)),
     is.character(x),
-    is.character(label),
-    "tbl_df" %in% class(attr) | is.null(attrs)
+    is.character(labels),
+    "tbl_df" %in% class(attrs) | is.null(attrs)
   )
   structure(
     as.vector(x),
-    label = as.vector(label),
+    labels = as.vector(labels),
     attrs = attrs,
     class = "gho"
   )

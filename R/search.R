@@ -18,7 +18,7 @@ search_gho <- function(gho, x) {
 
   build_gho(
     gho[pos],
-    label = attr(gho, "label")[pos]
+    labels = attr(gho, "label")[pos]
   )
 }
 

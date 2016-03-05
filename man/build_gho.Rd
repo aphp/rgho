@@ -4,7 +4,7 @@
 \alias{build_gho}
 \title{Check and Build a gho Object}
 \usage{
-build_gho(x, label, attrs = NULL)
+build_gho(x, labels, attrs = NULL)
 }
 \arguments{
 \item{x}{A vector of codes.}
