@@ -1,6 +1,6 @@
 #' Get Dimension Attributes
 #'
-#' @param dimension A parsed XML list of \code{Code} elements.
+#' @param xml_dim A parsed XML list of \code{Code} elements.
 #'
 #' @return A \code{data_frame} of attributes.
 #'

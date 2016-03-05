@@ -9,9 +9,9 @@ build_gho(x, labels, attrs = NULL)
 \arguments{
 \item{x}{A vector of codes.}
 
-\item{label}{A vector of labels.}
+\item{labels}{A vector of labels.}
 
-\item{attr}{A \code{data_frame} of attributes.}
+\item{attrs}{A \code{data_frame} of attributes.}
 }
 \value{
 A \code{gho} object.

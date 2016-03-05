@@ -1,8 +1,8 @@
 #' Check and Build a gho Object
 #'
 #' @param x A vector of codes.
-#' @param label A vector of labels.
-#' @param attr A \code{data_frame} of attributes.
+#' @param labels A vector of labels.
+#' @param attrs A \code{data_frame} of attributes.
 #'
 #' @return A \code{gho} object.
 build_gho <- function(x, labels, attrs = NULL) {

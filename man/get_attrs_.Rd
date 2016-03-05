@@ -10,7 +10,7 @@ get_attrs_(xml_dim)
 get_attrs(xml_dim)
 }
 \arguments{
-\item{dimension}{A parsed XML list of \code{Code} elements.}
+\item{xml_dim}{A parsed XML list of \code{Code} elements.}
 }
 \value{
 A \code{data_frame} of attributes.

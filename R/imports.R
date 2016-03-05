@@ -20,6 +20,7 @@
 #' @importFrom magrittr "extract2"
 #'
 #' @importFrom dplyr data_frame
+#' @importFrom dplyr filter_
 #'
 #' @importFrom tidyr spread_
 #'
