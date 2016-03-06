@@ -31,7 +31,7 @@ get_gho_data_ <- function(code, dimension = "GHO", filter = NULL, ...) {
       ...
     )
   ) %>%
-    httr::content(type = "text") %>%
+    httr::content(type = "text", encoding = "UTF-8") %>%
     readr::read_csv()
 }
 
