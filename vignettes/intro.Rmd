@@ -34,6 +34,7 @@ And codes for a given dimension with `get_gho_codes()`:
 
 ```{r}
 get_gho_codes(dimension = "COUNTRY")
+get_gho_codes(dimension = "GHO")
 ```
 
 ## Search
@@ -43,6 +44,13 @@ The function `search_dimensions()` and `search_codes()` research a term in dimen
 ```{r}
 search_dimensions("region")
 search_codes("neonatal", dimension = "GHO")
+```
+
+It is also possible to search results from an existing object.
+
+```{r}
+result <- get_gho_codes(dimension = "REGION")
+search_gho(result, "asia")
 ```
 
 ## Filtering results
@@ -57,7 +65,6 @@ filter_attrs(
   WHO_REGION_CODE == "EUR"
 )
 ```
-
 
 ## Data download
 
