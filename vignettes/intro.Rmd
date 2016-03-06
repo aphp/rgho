@@ -22,7 +22,7 @@ As stated by the WHO website: *The GHO data repository contains an extensive lis
 
 ## Data structure
 
-GHO data is structured in indicators structured in dimensions. The list of dimensions is available in `vignette("dimensions", package = "rgho")`, the list of indicators for the *GHO* dimension in `vignette("codes-gho", package = "rgho")`).
+GHO data is composed of indicators structured in dimensions. The list of dimensions is available in `vignette("dimensions", package = "rgho")`, the list of indicators for the *GHO* dimension (the main dimension) in `vignette("codes-gho", package = "rgho")`).
 
 It is possible to access dimensions with `get_gho_dimensions()`:
 
@@ -50,8 +50,10 @@ search_codes("neonatal", dimension = "GHO")
 Dimension codes can be filtered according to their attributes.
 
 ```{r}
+results <- get_gho_codes(dimension = "COUNTRY")
+
 filter_attrs(
-  get_gho_codes(dimension = "COUNTRY"),
+  results,
   WHO_REGION_CODE == "EUR"
 )
 ```
@@ -89,4 +91,4 @@ print(result, width = Inf)
 
 ## Other parameters
 
-Other parameters than `format` can be specified to `get_gho_data()` (such as `apikey`, `asof`...). Parameters are listed on [this page](http://apps.who.int/gho/data/node.resources.api). Note that most parameters are not available to users.
+Other parameters than `format` can be specified to `get_gho_data()` (such as `apikey`, `asof`...). Parameters are listed on [this page](http://apps.who.int/gho/data/node.resources.api). Note that most parameters are not available to general users.
