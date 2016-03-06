@@ -9,9 +9,11 @@ get_attrs_ <- function(xml_dim) {
   codes <- xml_dim %>%
     xml2::xml_attr("Label")
 
+  n_code <- unlist(lapply((xml_dim), xml2::xml_length)) - 1
+
   dplyr::data_frame(
     code = rep(codes,
-               unlist(lapply((xml_dim), xml2::xml_length)) - 1),
+               n_code),
     key = xml_dim %>%
       xml2::xml_find_all("./Attr") %>%
       xml2::xml_attr("Category"),
@@ -20,7 +22,15 @@ get_attrs_ <- function(xml_dim) {
       xml2::xml_contents() %>%
       as.character
   ) %>%
-    tidyr::spread_(key_col = "key", value_col = "value")
+    tidyr::spread_(
+      key_col = "key",
+      value_col = "value"
+    ) %>%
+    dplyr::bind_rows(
+      dplyr::data_frame(
+        code = codes[n_code == 0]
+      )
+    )
 }
 
 #' @rdname get_attrs_

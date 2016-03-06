@@ -1,6 +1,6 @@
-to_data_frame <- function(x, row.names = NULL, optional = FALSE, ...) {
+to_data_frame <- function(x) {
   dplyr::data_frame(
-    Label = attr(x, "label"),
+    Label = attr(x, "labels"),
     ID = as.vector(x)
   )
 }

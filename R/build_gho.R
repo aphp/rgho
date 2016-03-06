@@ -11,7 +11,9 @@ build_gho <- function(x, labels, attrs = NULL) {
     is.null(dim(labels)),
     is.character(x),
     is.character(labels),
-    "tbl_df" %in% class(attrs) | is.null(attrs)
+    "tbl_df" %in% class(attrs) | is.null(attrs),
+    length(x) == length(labels),
+    if (! is.null(attrs)) nrow(attrs) == length(x) else TRUE
   )
   structure(
     as.vector(x),

@@ -11,14 +11,14 @@
 search_gho <- function(gho, x) {
   pos <- grep(
     tolower(x),
-    tolower(attr(gho, "label")),
+    tolower(attr(gho, "labels")),
     useBytes = TRUE,
     fixed = TRUE
   )
 
   build_gho(
     gho[pos],
-    labels = attr(gho, "label")[pos]
+    labels = attr(gho, "labels")[pos]
   )
 }
 

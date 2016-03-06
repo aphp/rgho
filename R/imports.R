@@ -21,10 +21,10 @@
 #'
 #' @importFrom dplyr data_frame
 #' @importFrom dplyr filter_
-#' @importFrom dplyr filter
+#' @importFrom dplyr bind_rows
 #'
 #' @importFrom tidyr spread_
 #'
+#' @importFrom lazyeval lazy_dots
+#'
 NULL
-
-#' @export filter
