@@ -11,7 +11,7 @@ get_attrs_ <- function(xml_dim) {
 
   n_code <- unlist(lapply((xml_dim), xml2::xml_length)) - 1
 
-  dplyr::data_frame(
+  res <- dplyr::data_frame(
     code = rep(codes,
                n_code),
     key = xml_dim %>%
@@ -31,6 +31,8 @@ get_attrs_ <- function(xml_dim) {
         code = codes[n_code == 0]
       )
     )
+
+  if (ncol(res) > 1) res else NULL
 }
 
 #' @rdname get_attrs_
