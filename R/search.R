@@ -8,6 +8,8 @@
 #' @return A vector of dimensions or codes whose labels mach the search string.
 #'  Labels are given as as a \code{label} attribute.
 #'
+#' @export
+#'
 search_gho <- function(gho, x) {
   pos <- grep(
     tolower(x),
@@ -16,9 +18,16 @@ search_gho <- function(gho, x) {
     fixed = TRUE
   )
 
+  if (! is.null(attr(gho, "attrs"))) {
+    attrs <- attr(gho, "attrs")[pos, ]
+  } else {
+    attrs <- NULL
+  }
+
   build_gho(
     gho[pos],
-    labels = attr(gho, "labels")[pos]
+    labels = attr(gho, "labels")[pos],
+    attrs = attrs
   )
 }
 
