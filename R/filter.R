@@ -1,5 +1,5 @@
 #' @export
-#' @rdname get_gho_codes_
+#' @rdname get_gho_codes
 filter_attrs <- function (x, ...) {
   .dots <- lazyeval::lazy_dots(...)
 
