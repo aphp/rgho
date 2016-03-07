@@ -2,7 +2,9 @@
 #'
 #' @return GHO dimensions as a character vector, and labels as a \code{label} attribute.
 #'
-get_gho_dimensions_ <- function() {
+#' @export
+#'
+get_gho_dimensions <- function() {
   xml_dim <- get_gho(
     url = build_gho_url(dimension = NULL)
   ) %>%
@@ -21,7 +23,3 @@ get_gho_dimensions_ <- function() {
     res, labels = labels
   )
 }
-
-#' @rdname get_gho_dimensions_
-#' @export
-get_gho_dimensions <- memoise::memoise(get_gho_dimensions_)

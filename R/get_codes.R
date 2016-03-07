@@ -9,7 +9,9 @@
 #' @return GHO codes as a character vector, labels as a
 #'   \code{label} attribute and other attributes in a \code{attrs}
 #'   attribute, as a \code{data_frame}.
-get_gho_codes_ <- function(dimension = "GHO") {
+#' @export
+#'
+get_gho_codes <- function(dimension = "GHO") {
   stopifnot(
     dimension %in% get_gho_dimensions()
   )
@@ -34,7 +36,3 @@ get_gho_codes_ <- function(dimension = "GHO") {
     attrs = get_attrs(xml_codes)
   )
 }
-
-#' @rdname get_gho_codes_
-#' @export
-get_gho_codes <- memoise::memoise(get_gho_codes_)

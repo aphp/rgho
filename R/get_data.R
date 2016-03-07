@@ -15,6 +15,8 @@
 #'
 #' @return A \code{data_frame}.
 #'
+#' @export
+#'
 get_gho_data_ <- function(code, dimension = "GHO", filter = NULL, ...) {
 
   stopifnot(
