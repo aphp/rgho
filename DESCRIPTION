@@ -1,5 +1,5 @@
 Package: rgho
-Title: Access WHO Global Health Observatory Data From R
+Title: Access WHO Global Health Observatory Data from R
 Version: 0.0.0.9000
 Author: Antoine Filipovic-Pierucci [aut,cre]
 Maintainer: Antoine Filipovic-Pierucci <pierucci@gmail.com>
