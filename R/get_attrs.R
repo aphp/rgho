@@ -19,8 +19,7 @@ get_attrs_ <- function(xml_dim) {
       xml2::xml_attr("Category"),
     value = xml_dim %>%
       xml2::xml_find_all("./Attr/Value/Display") %>%
-      xml2::xml_contents() %>%
-      as.character
+      xml2::xml_text()
   ) %>%
     tidyr::spread_(
       key_col = "key",

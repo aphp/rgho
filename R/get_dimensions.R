@@ -16,8 +16,7 @@ get_gho_dimensions <- function() {
 
   labels <- xml_dim %>%
     xml2::xml_find_all("//Dimension//Display") %>%
-    xml2::xml_contents() %>%
-    as.character()
+    xml2::xml_text()
 
   build_gho(
     res, labels = labels
