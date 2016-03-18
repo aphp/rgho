@@ -1,6 +1,6 @@
 # rgho - Access WHO Global Health Observatory Data From R
 
-[![Travis-CI Build Status](https://travis-ci.org/pierucci/rgho.svg?branch=master)](https://travis-ci.org/pierucci/rgho) [![](http://www.r-pkg.org/badges/version/rgho)](http://www.r-pkg.org/pkg/rgho)
+[![Travis-CI Build Status](https://travis-ci.org/pierucci/rgho.svg?branch=master)](https://travis-ci.org/pierucci/rgho)
 
 `rgho` is an `R` package to access WHO GHO data from R via the Athena web service, an API providing a simple query interface to the World Health Organization's data and statistics content.
 
