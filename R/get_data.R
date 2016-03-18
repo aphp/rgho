@@ -17,6 +17,25 @@
 #'
 #' @export
 #'
+#' @examples
+#'
+#' result <- get_gho_data(
+#'   dimension = "GHO",
+#'   code = "MDG_0000000001"
+#' )
+#' print(result, width = Inf)
+#'
+#'
+#' result <- get_gho_data(
+#'   dimension = "GHO",
+#'   code = "MDG_0000000001",
+#'   filter = list(
+#'     REGION = "EUR",
+#'     YEAR = "2015"
+#'   )
+#' )
+#' print(result, width = Inf)
+#'
 get_gho_data_ <- function(code, dimension = "GHO", filter = NULL, ...) {
 
   stopifnot(

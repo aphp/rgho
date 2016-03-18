@@ -31,4 +31,24 @@ Filtering parameters are given as a named list of the form
 Query parameters follow the specification described on the WHO website
 \url{http://apps.who.int/gho/data/node.resources.api}.
 }
+\examples{
+
+result <- get_gho_data(
+  dimension = "GHO",
+  code = "MDG_0000000001"
+)
+print(result, width = Inf)
+
+
+result <- get_gho_data(
+  dimension = "GHO",
+  code = "MDG_0000000001",
+  filter = list(
+    REGION = "EUR",
+    YEAR = "2015"
+  )
+)
+print(result, width = Inf)
+
+}
 

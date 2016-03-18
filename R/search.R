@@ -10,6 +10,13 @@
 #'
 #' @export
 #'
+#' @examples
+#'
+#' search_codes("neonatal", dimension = "GHO")
+#'
+#' result <- get_gho_codes(dimension = "REGION")
+#' search_gho(result, "asia")
+#'
 search_gho <- function(gho, x) {
   pos <- grep(
     tolower(x),

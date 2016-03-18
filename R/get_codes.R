@@ -11,6 +11,16 @@
 #'   attribute, as a \code{data_frame}.
 #' @export
 #'
+#' @examples
+#'
+#' get_gho_codes(dimension = "GHO")
+#'
+#' results <- get_gho_codes(dimension = "COUNTRY")
+#' filter_attrs(
+#'   results,
+#'   WHO_REGION_CODE == "EUR"
+#' )
+#'
 get_gho_codes <- function(dimension = "GHO") {
   stopifnot(
     dimension %in% get_gho_dimensions()
