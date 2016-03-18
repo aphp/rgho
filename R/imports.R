@@ -27,4 +27,6 @@
 #'
 #' @importFrom lazyeval lazy_dots
 #'
+#' @importFrom utils head
+#'
 NULL
