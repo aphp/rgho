@@ -4,6 +4,10 @@
 #'
 #' @export
 #'
+#' @examples
+#'
+#' get_gho_dimensions()
+#'
 get_gho_dimensions <- function() {
   xml_dim <- get_gho(
     url = build_gho_url(dimension = NULL)

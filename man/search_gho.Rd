@@ -27,4 +27,12 @@ A vector of dimensions or codes whose labels mach the search string.
 \description{
 Search Codes or Dimensions Labels
 }
+\examples{
+
+search_codes("neonatal", dimension = "GHO")
+
+result <- get_gho_codes(dimension = "REGION")
+search_gho(result, "asia")
+
+}
 

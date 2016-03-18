@@ -26,4 +26,15 @@ GHO codes as a character vector, labels as a
 \description{
 Returns GHO Codes for a Given Dimension
 }
+\examples{
+
+get_gho_codes(dimension = "GHO")
+
+results <- get_gho_codes(dimension = "COUNTRY")
+filter_attrs(
+  results,
+  WHO_REGION_CODE == "EUR"
+)
+
+}
 

@@ -12,4 +12,9 @@ GHO dimensions as a character vector, and labels as a \code{label} attribute.
 \description{
 Returns Available GHO Dimensions
 }
+\examples{
+
+get_gho_dimensions()
+
+}
 
