@@ -43,7 +43,7 @@ get_gho_data_ <- function(code, dimension = "GHO", filter = NULL, ...) {
     code %in% get_gho_codes(dimension = dimension)
   )
 
-  get_gho(
+  request_content <- get_gho(
     url = build_gho_url(
       dimension = dimension,
       code = code,
@@ -52,8 +52,13 @@ get_gho_data_ <- function(code, dimension = "GHO", filter = NULL, ...) {
       ...
     )
   ) %>%
-    httr::content(type = "text", encoding = "UTF-8") %>%
-    readr::read_csv()
+    httr::content(type = "text", encoding = "UTF-8")
+
+  if (request_content != "") {
+    readr::read_csv(request_content)
+  } else {
+    stop("No data returned.")
+  }
 }
 
 #' @rdname get_gho_data_

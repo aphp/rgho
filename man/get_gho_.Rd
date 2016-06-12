@@ -5,12 +5,14 @@
 \alias{get_gho_}
 \title{GET a GHO URL}
 \usage{
-get_gho_(url)
+get_gho_(url, debug = FALSE)
 
-get_gho(url)
+get_gho(url, debug = FALSE)
 }
 \arguments{
 \item{url}{the url to retrieve, given as a character string.}
+
+\item{debug}{Print debugging messages?}
 }
 \value{
 The result from \code{httr} GET function.
