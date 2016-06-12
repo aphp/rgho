@@ -5,14 +5,16 @@
 \alias{get_gho_}
 \title{GET a GHO URL}
 \usage{
-get_gho_(url, debug = FALSE)
+get_gho_(url, debug = FALSE, max_try = 5)
 
-get_gho(url, debug = FALSE)
+get_gho(url, debug = FALSE, max_try = 5)
 }
 \arguments{
 \item{url}{the url to retrieve, given as a character string.}
 
 \item{debug}{Print debugging messages?}
+
+\item{max_try}{Maximum number of \code{get} trials.}
 }
 \value{
 The result from \code{httr} GET function.
