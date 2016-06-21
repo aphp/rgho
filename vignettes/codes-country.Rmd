@@ -18,5 +18,11 @@ library(knitr)
 ```
 
 ```{r, echo=FALSE}
-kable(rgho:::to_data_frame(get_gho_codes(dimension = "COUNTRY")))
+kable(
+  dplyr::arrange(
+    rgho:::to_data_frame(
+      get_gho_codes(dimension = "COUNTRY")
+      ),
+    Label)
+  )
 ```
