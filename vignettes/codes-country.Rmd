@@ -1,0 +1,22 @@
+---
+  title: "Codes for the COUNTRY Dimension"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+  toc: true
+vignette: >
+  %\VignetteIndexEntry{Codes for the COUNTRY Dimension}
+%\VignetteEngine{knitr::rmarkdown}
+\usepackage[utf8]{inputenc}
+---
+
+Available codes for the COUNTRY dimension:
+
+```{r, echo=FALSE, include=FALSE}
+library(rgho)
+library(knitr)
+```
+
+```{r, echo=FALSE}
+kable(rgho:::to_data_frame(get_gho_codes(dimension = "COUNTRY")))
+```
