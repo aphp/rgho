@@ -1,13 +1,13 @@
 ---
-  title: "Codes for the COUNTRY Dimension"
+title: "Codes for the COUNTRY Dimension"
 date: "`r Sys.Date()`"
 output:
   rmarkdown::html_vignette:
-  toc: true
+    toc: true
 vignette: >
   %\VignetteIndexEntry{Codes for the COUNTRY Dimension}
-%\VignetteEngine{knitr::rmarkdown}
-\usepackage[utf8]{inputenc}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
 ---
 
 Available codes for the COUNTRY dimension:
