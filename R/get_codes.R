@@ -37,7 +37,8 @@ get_gho_codes <- function(dimension = "GHO") {
 
   labels <- xml_codes[1] %>%
     xml2::xml_find_all("//Code/Display") %>%
-    xml2::xml_text()
+    xml2::xml_text() %>%
+    to_utf8
 
   build_gho(
     res,
