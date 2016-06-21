@@ -1,7 +1,8 @@
 to_data_frame <- function(x, n = length(x)) {
   data.frame(
     Label = head(attr(x, "labels"), n = n),
-    ID = head(as.vector(x), n = n)
+    ID = head(as.vector(x), n = n),
+    stringsAsFactors = FALSE
   )
 }
 
