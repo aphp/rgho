@@ -9,10 +9,20 @@
 #' get_gho_dimensions()
 #'
 get_gho_dimensions <- function() {
-  xml_dim <- get_gho(
+  resp <- get_gho(
     url = build_gho_url(dimension = NULL)
-  ) %>%
-    httr::content() %>%
+  )
+
+  if (httr::http_type(resp) != "application/xml") {
+    stop(sprintf(
+      "Unexpected type: '%s', expected 'application/xml'.",
+      httr::http_type(resp)
+    ))
+  }
+
+  xml_dim <-  resp %>%
+    httr::content(as = "text") %>%
+    xml2::read_xml() %>%
     xml2::xml_find_all("//Dimension")
 
   res <- xml_dim %>%
