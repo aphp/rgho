@@ -15,7 +15,7 @@ install.packages("rgho")
   * the latest development version from github with:
 
 ```r
-devtools::install_github("pierucci/rgho")
+devtools::install_github("pierucci/rgho@devel")
 ```
 
 ## Main features
@@ -25,9 +25,9 @@ devtools::install_github("pierucci/rgho")
   
 ## Documentation
 
-  * Introduction in `vignette("intro", package = "rgho")`.
-  * List of GHO dimensions in `vignette("dimensions", package = "rgho")`.
-  * List of codes for the `GHO` dimension in `vignette("codes-gho", package = "rgho")`.
+  * Introduction in `vignette("intro", "rgho")`.
+  * List of GHO dimensions in `vignette("dimensions", "rgho")`.
+  * List of codes for the `GHO` dimension in `vignette("codes-gho", "rgho")`.
 
 ## Devs
 
