@@ -37,7 +37,7 @@ get_gho_codes <- function(dimension = "GHO") {
     ))
   }
 
-  resp %>%
+  xml_codes <- resp %>%
     httr::content(as = "text") %>%
     xml2::read_xml() %>%
     xml2::xml_find_all("//Code")

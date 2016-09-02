@@ -2,6 +2,7 @@
 #' @importFrom httr build_url
 #' @importFrom httr use_proxy
 #' @importFrom httr content
+#' @importFrom httr user_agent
 #'
 #' @importFrom memoise memoise
 #'
@@ -26,6 +27,8 @@
 #' @importFrom tidyr spread_
 #'
 #' @importFrom lazyeval lazy_dots
+#'
+#' @importFrom stats runif
 #'
 #' @importFrom utils head
 #'

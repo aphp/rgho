@@ -6,28 +6,29 @@
 #'
 #' @param url the url to retrieve, given as a character string.
 #' @param debug Print debugging messages?
-#' @param max_try Maximum number of \code{GET} re-trials.
+#' @param retry Maximum number of \code{GET} re-trials.
 #'
 #' @return The result from \code{httr} GET function.
 #'
-get_gho_ <- function(url, debug = TRUE, max_try = 5) {
+get_gho_ <- function(url, debug = TRUE, retry = 5) {
   proxy_list <- get_proxy_list(url)
 
   if (debug) message(sprintf("URL: %s", url))
+
   if (is.null(proxy_list)) {
     if (debug) message("Trying request without proxy settings.")
     n <- 0
-    while(n <= max_try){
+
+    while(n <= retry){
       if (debug) message(sprintf("Try #%i.", n))
-      res <- try(httr::GET(url = url))
+
+      res <- try(httr::GET(
+        url = url,
+        config = httr::user_agent("https://pierucci.github.io/rgho/")))
       if (! is_error(res)) break
-      waiting_time <- runif(1, 0, 2^n)
-      if (debug) message(sprintf(
-        "Request failed (%s), waiting %.1fs.",
-        format_error(res),
-        waiting_time
-      ))
-      Sys.sleep(runif(1, 0, 2^n))
+
+      if (debug) message(sprintf("Request failed (%s).", format_error(res)))
+      wait(n, debug)
       n <- n + 1
     }
   } else {
@@ -35,35 +36,38 @@ get_gho_ <- function(url, debug = TRUE, max_try = 5) {
       if (debug) message(sprintf("Trying request with proxy settings #%i.", i))
 
       n <- 0
-      while(n <= max_try){
+      while(n <= retry){
         if (debug) message(sprintf("Try #%i.", n))
-        res <- try(httr::GET(url = url, config = proxy_list[[i]]))
-        if (! is_error(res)) break
-        waiting_time <- runif(1, 0, 2^n)
-        if (debug) message(sprintf(
-          "Request failed (%s), waiting %.1fs.",
-          format_error(res),
-          waiting_time
+
+        res <- try(httr::GET(
+          url = url,
+          config = list(
+            proxy_list[[i]],
+            httr::user_agent("https://pierucci.github.io/rgho/")
+          )
         ))
-        Sys.sleep(runif(1, 0, 2^n))
+        if (! is_error(res)) break
+
+        if (debug) message(sprintf("Request failed (%s).", format_error(res)))
+        wait(n, debug)
         n <- n + 1
       }
 
-      if (! httr::http_error(res)) {
-        if (debug) message("Success.")
-        break
-      }
+      if (! is_error(res)) break
+
       if (debug) message("Failure.")
     }
   }
-  if (httr::http_error(res)) {
-    stop(httr::http_status(res)$message)
-  }
+
   if (is_error(res)) {
-    stop("Error during request.")
+    stop(sprintf(
+      "Error during request:\n%s",
+      format_error(res)
+    ))
   }
+
+  if (debug) message("Success.")
   res
-  stop(httr::http_type(res))
 }
 
 #' @rdname get_gho_
@@ -76,9 +80,20 @@ is_error <- function(x) {
 format_error <- function(x) {
   if (inherits(x, "try-error")) {
     x$message
+
   } else if (httr::http_error(x)) {
-    httr::http_status(res)$message
+    httr::http_status(x)$message
+
   } else {
-    "Unknown error."
+    "Unknown error during HTTP request."
   }
+}
+
+wait <- function(n, debug = FALSE) {
+  waiting_time <- stats::runif(1, 0, 2^n)
+  if (debug) message(sprintf(
+    "Waiting %.1fs.",
+    waiting_time
+  ))
+  Sys.sleep(runif(1, 0, 2^n))
 }
