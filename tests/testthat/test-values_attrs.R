@@ -7,7 +7,7 @@ test_that("correct inputs work", {
   codes <- get_gho_codes()
 
   v_cat <- values_attrs(codes, "CATEGORY")
-dput(sort(v_cat), file = "~/test")
+
   expect_identical(
     sort(v_cat),
     sort(c("Child health", "Demographic and socioeconomic statistics",
