@@ -2,15 +2,23 @@
 #' @rdname get_gho_codes
 filter_attrs <- function (x, ...) {
   .dots <- lazyeval::lazy_dots(...)
+  filter_attrs_(x, .dots = .dots)
+}
 
-  tab_attrs <- attr(x, "attrs") %>%
+filter_attrs_ <- function(x, .dots) {
+  if (is.null(gho_attr <- attr(x, "attrs"))) {
+    stop("Attempt to filter a GHO object with no attribute.")
+    return(x)
+  }
+
+  filtered_attrs <- gho_attr %>%
     dplyr::filter_(.dots = .dots)
 
-  codes <- unique(tab_attrs$code)
+  codes <- unique(filtered_attrs$code)
 
   build_gho(
     x[x %in% codes],
     labels = attr(x, "labels")[x %in% codes],
-    attrs = tab_attrs
+    attrs = filtered_attrs
   )
 }

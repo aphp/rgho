@@ -66,6 +66,15 @@ filter_attrs(
 )
 ```
 
+Attribute values can be displayed.
+
+```{r}
+values_attrs(
+  results,
+  "WHO_REGION_CODE"
+)
+```
+
 ## Data download
 
 An indicator can be downloaded as a `data_frame` with `get_gho_data()`. Here we use `MDG_0000000001`, *Infant mortality rate (probability of dying between birth and age 1 per 1000 live births)*:

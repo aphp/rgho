@@ -1,16 +1,19 @@
 #' Returns GHO Data
 #'
-#' Given a dimension and a code, returns the corresponding GHO data.
+#' Given a dimension and a code, returns the corresponding
+#' GHO data.
 #'
-#' Filtering parameters are given as a named list of the form
-#' \code{list(COUNTRY = "FRA", ...)}.
+#' Filtering parameters are given as a named list of the
+#' form \code{list(COUNTRY = "FRA", ...)}.
 #'
-#' Query parameters follow the specification described on the WHO website
+#' Query parameters follow the specification described on
+#' the WHO website
 #' \url{http://apps.who.int/gho/data/node.resources.api}.
 #'
 #' @param code A GHO code.
 #' @param dimension A GHO dimension.
-#' @param filter A named list of filtering parameters (see details).
+#' @param filter A named list of filtering parameters (see
+#'   details).
 #' @param ... Additional query parameters (see details).
 #'
 #' @return A \code{data_frame}.
@@ -57,7 +60,7 @@ get_gho_data_ <- function(code, dimension = "GHO", filter = NULL, ...) {
   if (request_content != "") {
     readr::read_csv(request_content)
   } else {
-    stop("No data returned.")
+    stop("No data returned by WHO GHO server.")
   }
 }
 
