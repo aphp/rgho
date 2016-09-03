@@ -32,3 +32,10 @@ devtools::install_github("pierucci/rgho@devel")
 ## Devs
 
 [Antoine Filipović-Pierucci](https://pierucci.github.io/), [Kevin Zarca](http://www.urc-eco.fr/Kevin-ZARCA,402).
+
+<h1 align="center">
+<a href="http://www.urc-eco.fr">
+	<img width="220" src="./inst/media/logo.png" alt="">
+</a>
+</h1>
+
