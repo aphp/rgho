@@ -18,4 +18,5 @@ A \code{data_frame} of attributes.
 \description{
 Get Dimension Attributes
 }
+\keyword{internal}
 

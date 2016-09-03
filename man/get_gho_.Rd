@@ -25,4 +25,5 @@ Given a url, tries to find local proxy settings and GET the content of the GHO p
 \details{
 The function re-tries failed attempts using exponential backoff with jitter.
 }
+\keyword{internal}
 

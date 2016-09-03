@@ -24,4 +24,5 @@ An URL as a string.
 \description{
 Construct GHO request URL
 }
+\keyword{internal}
 

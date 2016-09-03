@@ -3,7 +3,7 @@
 #' @param xml_dim A parsed XML list of \code{Code} elements.
 #'
 #' @return A \code{data_frame} of attributes.
-#'
+#' @keywords internal
 get_attrs_ <- function(xml_dim) {
 
   codes <- xml_dim %>%

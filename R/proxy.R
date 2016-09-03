@@ -5,7 +5,7 @@
 #' @param url The url to access, as a character string.
 #'
 #' @return A list of proxy, or \code{NULL} if not proxy are found.
-#'
+#' @keywords internal
 get_proxy_list <- function(url) {
   proxy_string <- curl::ie_get_proxy_for_url(target_url = url)
 
@@ -24,7 +24,7 @@ get_proxy_list <- function(url) {
 #' @param proxy_string A list of proxy IP as a concatenated string.
 #'
 #' @return A list of proxy settings.
-#'
+#' @keywords internal
 parse_proxy_string <- function(proxy_string) {
   proxy_string %>%
     strsplit(";") %>%

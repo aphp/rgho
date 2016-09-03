@@ -9,7 +9,7 @@
 #' @param retry Maximum number of \code{GET} re-trials.
 #'
 #' @return The result from \code{\link[httr]{GET}}.
-#'
+#' @keywords internal
 get_gho_ <- function(url, verbose = FALSE, retry = 5) {
   proxy_list <- get_proxy_list(url)
 
