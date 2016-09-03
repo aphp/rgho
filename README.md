@@ -2,7 +2,7 @@
 
 [![Travis-CI Build Status](https://travis-ci.org/pierucci/rgho.svg?branch=master)](https://travis-ci.org/pierucci/rgho) [![](http://www.r-pkg.org/badges/version/rgho)](http://www.r-pkg.org/pkg/rgho)
 
-`rgho` is an `R` package to access [WHO GHO data](http://www.who.int/gho/database/en/) from R via the Athena web service, an API providing a simple query interface to the World Health Organization's data and statistics content.
+`rgho` is an `R` package to access [WHO GHO data](http://www.who.int/gho/database/en/) from `R` via the Athena web service, an API providing a simple query interface to the World Health Organization's data and statistics content.
 
 You can install:
 
@@ -25,9 +25,9 @@ devtools::install_github("pierucci/rgho@devel")
   
 ## Documentation
 
-  * Introduction in `vignette("intro", "rgho")`.
-  * List of GHO dimensions in `vignette("dimensions", "rgho")`.
-  * List of codes for the `GHO` dimension in `vignette("codes-gho", "rgho")`.
+  * Introduction in `vignette("intro")`.
+  * List of GHO dimensions in `vignette("dimensions")`.
+  * List of codes for the `GHO` dimension in `vignette("codes-gho")`.
 
 ## Devs
 
