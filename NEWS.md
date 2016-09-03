@@ -1,4 +1,4 @@
-# rgho rc
+# rgho 0.2.0
 
   * Fix encoding problem with country names.
   * New `COUNTRY` vignette.
