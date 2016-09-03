@@ -1,3 +1,13 @@
+#' rgho: Access WHO Global Health Observatory Data From R
+#'
+#' Access WHO Global Health Observatory data from R via the
+#' Athena web service, an application program interface
+#' providing a simple query interface to the World Health
+#' Organization's data and statistics content.
+#'
+#' @docType package
+#' @name rgho
+#'
 #' @importFrom httr parse_url
 #' @importFrom httr build_url
 #' @importFrom httr use_proxy

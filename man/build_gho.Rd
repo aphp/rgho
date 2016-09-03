@@ -19,4 +19,5 @@ A \code{gho} object.
 \description{
 Check and Build a gho Object
 }
+\keyword{internal}
 

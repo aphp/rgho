@@ -15,4 +15,5 @@ A list of proxy, or \code{NULL} if not proxy are found.
 \description{
 Tries to find the local proxy settings to access a given url.
 }
+\keyword{internal}
 

@@ -5,19 +5,19 @@
 \alias{get_gho_}
 \title{GET a GHO URL}
 \usage{
-get_gho_(url, debug = TRUE, retry = 5)
+get_gho_(url, verbose = FALSE, retry = 5)
 
-get_gho(url, debug = TRUE, retry = 5)
+get_gho(url, verbose = FALSE, retry = 5)
 }
 \arguments{
 \item{url}{the url to retrieve, given as a character string.}
 
-\item{debug}{Print debugging messages?}
+\item{verbose}{Verbose mode?}
 
 \item{retry}{Maximum number of \code{GET} re-trials.}
 }
 \value{
-The result from \code{httr} GET function.
+The result from \code{\link[httr]{GET}}.
 }
 \description{
 Given a url, tries to find local proxy settings and GET the content of the GHO page.
@@ -25,4 +25,5 @@ Given a url, tries to find local proxy settings and GET the content of the GHO p
 \details{
 The function re-tries failed attempts using exponential backoff with jitter.
 }
+\keyword{internal}
 

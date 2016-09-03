@@ -14,7 +14,8 @@ get_gho_data(code, dimension = "GHO", filter = NULL, ...)
 
 \item{dimension}{A GHO dimension.}
 
-\item{filter}{A named list of filtering parameters (see details).}
+\item{filter}{A named list of filtering parameters (see
+details).}
 
 \item{...}{Additional query parameters (see details).}
 }
@@ -22,13 +23,15 @@ get_gho_data(code, dimension = "GHO", filter = NULL, ...)
 A \code{data_frame}.
 }
 \description{
-Given a dimension and a code, returns the corresponding GHO data.
+Given a dimension and a code, returns the corresponding
+GHO data.
 }
 \details{
-Filtering parameters are given as a named list of the form
-\code{list(COUNTRY = "FRA", ...)}.
+Filtering parameters are given as a named list of the
+form \code{list(COUNTRY = "FRA", ...)}.
 
-Query parameters follow the specification described on the WHO website
+Query parameters follow the specification described on
+the WHO website
 \url{http://apps.who.int/gho/data/node.resources.api}.
 }
 \examples{

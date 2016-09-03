@@ -16,4 +16,5 @@ A list of proxy settings.
 Given character string containig a list of proxy,
 returns the list in a more computer readable form.
 }
+\keyword{internal}
 

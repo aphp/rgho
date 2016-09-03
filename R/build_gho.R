@@ -5,6 +5,7 @@
 #' @param attrs A \code{data_frame} of attributes.
 #'
 #' @return A \code{gho} object.
+#' @keywords internal
 build_gho <- function(x, labels, attrs = NULL) {
   stopifnot(
     is.null(dim(x)),
