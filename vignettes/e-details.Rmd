@@ -1,0 +1,33 @@
+---
+title: "Details"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Details}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r, echo=FALSE, include=FALSE}
+library(rgho)
+```
+
+# Verbose mode
+
+Request informations can be displayed by setting `options("rgho.verbose")` to `TRUE`.
+
+# Memoisation
+
+Request results are memoised. The results of requests are cached, and repeating a request with the same parameters will return the cached result without doing a new query.
+
+The cache is cleared after a delay in order to avoid returning out-of-date data. By default this delay is set to  `options("rgho.memotime")` seconds (by default `r options("rgho.memotime")`).
+
+# Proxy settings
+
+`rgho` tries to fetch MS Windows proxy settings with `curl::ie_get_proxy_for_url()`. If a list of proxies is returned the request will loop over the list until it succeeds.
+
+# Retry failed requests
+
+Failed requests are retried a maximum of `options("rgho.retry")` (by default `r options("rgho.retry")` times).

@@ -22,7 +22,7 @@ As stated by the WHO website: *The GHO data repository contains an extensive lis
 
 ## Data structure
 
-GHO data is composed of indicators structured in dimensions. The list of dimensions is available in `vignette("dimensions", package = "rgho")`, the list of indicators for the *GHO* dimension (the main dimension) in `vignette("codes-gho", package = "rgho")`).
+GHO data is composed of indicators structured in dimensions. The list of dimensions is available in `vignette("b-dimensions", "rgho")`, the list of indicators for the *GHO* dimension (the main dimension) in `vignette("c-codes-gho", "rgho")`).
 
 It is possible to access dimensions with `get_gho_dimensions()`:
 
@@ -108,3 +108,5 @@ print(result, width = Inf)
 ## Other parameters
 
 Other parameters than `format` can be specified to `get_gho_data()` (such as `apikey`, `asof`...). Parameters are listed on [this page](http://apps.who.int/gho/data/node.resources.api). Note that most parameters are not available to general users.
+
+For details about how the requests are performed and the option availables see `vignette("e-details", "rgho")`.

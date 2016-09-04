@@ -1,6 +1,8 @@
 # rgho rc
 
   * `verbose` and `retry` can now be set by `options()`.
+  * Memoise results for a limited time (1h by default).
+  * Request details explained in new vignette.
 
 # rgho 0.2.0
 

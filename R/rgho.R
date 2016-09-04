@@ -7,6 +7,14 @@
 #'
 #' @docType package
 #' @name rgho
+#' @section Package Options:
+#'
+#'   \itemize{ \item \code{rgho.verbose} Should informations
+#'   about the request be diplayed? Defaults to
+#'   \code{FALSE}. \item \code{rgho.retry} How many times
+#'   the request should be retried? Defaults to 5. \item
+#'   \code{rgho.memotime} For how long should the results of
+#'   a request be memoised, in seconds? Defaults to 3600. }
 #'
 #' @importFrom httr parse_url
 #' @importFrom httr build_url

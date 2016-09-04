@@ -25,9 +25,11 @@ devtools::install_github("pierucci/rgho@devel")
   
 ## Documentation
 
-  * Introduction in `vignette("intro", "rgho")`.
-  * List of GHO dimensions in `vignette("dimensions", "rgho")`.
-  * List of codes for the `GHO` dimension in `vignette("codes-gho", "rgho")`.
+  * Introduction in `vignette("a-intro", "rgho")`.
+  * List of GHO dimensions in `vignette("b-dimensions", "rgho")`.
+  * List of codes for the `GHO` dimension in `vignette("c-codes-gho", "rgho")`.
+  * List of codes for the `COUNTRY` dimension in `vignette("d-country", "rgho")`.
+  * Details about how requests are performed in `vignette("e-details", "rgho")`.
 
 ## Devs
 
