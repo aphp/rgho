@@ -10,7 +10,8 @@
 #'
 #' @return The result from \code{\link[httr]{GET}}.
 #' @keywords internal
-get_gho_ <- function(url, verbose = FALSE, retry = 5) {
+get_gho_ <- function(url, verbose = options()$rgho.verbose,
+                     retry = options()$rgho.retry) {
   proxy_list <- get_proxy_list(url)
 
   if (verbose) message(sprintf("URL: %s", url))

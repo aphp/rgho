@@ -1,3 +1,7 @@
+# rgho rc
+
+  * `verbose` and `retry` can now be set by `options()`.
+
 # rgho 0.2.0
 
   * Fix encoding problem with country names.
