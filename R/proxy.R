@@ -28,7 +28,7 @@ get_proxy_list <- function(url) {
 parse_proxy_string <- function(proxy_string) {
   proxy_string %>%
     strsplit(";") %>%
-    extract2(1) %>%
+    magrittr::extract2(1) %>%
     strsplit(":") %>%
     lapply(
       function(x) {
