@@ -15,6 +15,7 @@
 #' @importFrom httr user_agent
 #'
 #' @importFrom memoise memoise
+#' @importFrom memoise timeout
 #'
 #' @importFrom curl ie_get_proxy_for_url
 #'

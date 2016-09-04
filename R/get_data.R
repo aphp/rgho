@@ -66,4 +66,7 @@ get_gho_data_ <- function(code, dimension = "GHO", filter = NULL, ...) {
 
 #' @rdname get_gho_data_
 #' @export
-get_gho_data <- memoise::memoize(get_gho_data_)
+get_gho_data <- memoise::memoize(
+  get_gho_data_,
+  ~ memoise::timeout(options()$rgho.memotime)
+)
