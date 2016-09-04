@@ -11,7 +11,7 @@ Description: Access WHO Global Health Observatory
 License: GPL (>= 3)
 LazyData: TRUE
 Depends: R (>= 3.2.2)
-Imports: httr, curl, xml2, memoise, readr,
+Imports: httr, curl, jsonlite, memoise, readr,
   magrittr, dplyr, tidyr, lazyeval
 Suggests: testthat, knitr, rmarkdown, tibble
 VignetteBuilder: knitr

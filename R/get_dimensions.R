@@ -10,7 +10,7 @@
 #'
 get_gho_dimensions <- function() {
   resp <- get_gho(
-    url = build_gho_url(dimension = NULL)
+    url = build_gho_url(dimension = NULL, format = "json")
   )
 
   if (httr::http_type(resp) != "application/xml") {
