@@ -31,9 +31,9 @@ devtools::install_github("pierucci/rgho@devel")
   * List of codes for the `COUNTRY` dimension in `vignette("d-country", "rgho")`.
   * Details about how requests are performed in `vignette("e-details", "rgho")`.
 
-## Devs
+## Dev
 
-[Antoine Filipović-Pierucci](https://pierucci.github.io/), [Kevin Zarca](http://www.urc-eco.fr/Kevin-ZARCA,402).
+[Antoine Filipović-Pierucci](https://pierucci.github.io/).
 
 <h1 align="center">
 <a href="http://www.urc-eco.fr">
