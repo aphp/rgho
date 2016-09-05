@@ -16,6 +16,9 @@ build_gho <- function(x, labels, attrs = NULL) {
     length(x) == length(labels),
     if (! is.null(attrs)) nrow(attrs) == length(x) else TRUE
   )
+
+  if (ncol(attrs) == 0) attrs <- NULL
+
   structure(
     as.vector(x),
     labels = as.vector(labels),
