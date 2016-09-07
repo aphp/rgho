@@ -24,7 +24,7 @@ get_gho_dimensions <- function() {
 
   build_gho(
     tab_res$label, labels = tab_res$display,
-    attrs = dplyr::select_(tab_res, ~ -id, ~ -label, ~ -display)
+    attrs = dplyr::select_(tab_res, ~ -label, ~ -display)
   )
 }
 
@@ -71,7 +71,7 @@ get_gho_codes <- function(dimension = "GHO") {
 
   build_gho(
     tab_res$label, labels = tab_res$display,
-    attrs = dplyr::select_(tab_res, ~ -id, ~ -label, ~ -display)
+    attrs = dplyr::select_(tab_res, ~ -label, ~ -display)
   )
 }
 
@@ -96,24 +96,29 @@ parse_json <- function(resp, type = c("dimension", "code")) {
       x <- list_resp$dimension[[1]]$code
     }
   )
-f <- function(x) {
-  res1 <- tibble::tibble(
-    category = c("label", "display"),
-    value = c(x$label, x$display)
-  )
-  res2 <- dplyr::bind_rows(x$attr)
-    res3 <- dplyr::bind_rows(
-      res1,
-      res2
+
+  g <- function(x, y) rbind(unlist(x), unlist(y))
+
+  f <- function(x) {
+    if (length(x$attr) > 1) {
+      mat_attr <- Reduce(g, x$attr)
+    } else {
+      mat_attr <- rbind(unlist(x$attr))
+    }
+
+    res <- rbind(
+      matrix(
+        c("label", "display", x$label, x$display),
+        nrow = 2
+      ),
+      mat_attr
     )
 
-      tibble::add_column(res3,
-        id = rep(x$label, length(x$attr) + 2)
-      )
+    cbind(res, x$label)
   }
-  x %>%
-    lapply(f
-    ) %>%
-    dplyr::bind_rows() %>%
+
+  do.call(rbind, lapply(x, f)) %>%
+    tibble::as_tibble() %>%
+    setNames(c("category", "value", "code")) %>%
     tidyr::spread_(key_col = "category", value_col = "value")
 }

@@ -5,13 +5,6 @@ resp <- rgho:::build_gho_url(
   format = "json"
 ) %>%
   rgho:::get_gho()
-resp_dim <- rgho:::build_gho_url(
-  dimension = NULL,
-  format = "json"
-) %>%
-  rgho:::get_gho()
-
-httr::http_type(resp)
 
 test <- resp %>%
   httr::content(as = "text") %>%
@@ -22,60 +15,45 @@ test <- resp %>%
     simplifyMatrix = F
   )
 
-id <- test$dimension[[1]]$code %>%
-  lapply(function(x) x$label) %>%
-  unlist
-label <- test$dimension[[1]]$code %>%
-  lapply(function(x) x$display) %>%
-  unlist
-list_attr <- test$dimension[[1]]$code %>%
-  lapply(function(x) c(x$attr[[2]]$category,
-                       x$attr[[2]]$value)) %>% head %>%
-  Reduce(dplyr::)
-unlist
+f1 <- function(x) {
+  res1 <- matrix(
+    c("label", "display", x$label, x$display),
+    nrow = 2
+  )
 
+  #res2 <- dplyr::bind_rows(x$attr)
+  res2 <- Reduce(rbind, x$attr)
+  res3 <- rbind(
+    res1,
+    res2
+  )
+  res4 <- as.data.frame(res3)
+  rownames(res4) <- NULL
+  names(res4) <- c("category", "value")
+  res4$id <- x$label
 
-
-f <- function(x) {
-  c(x$label, x$display, unlist(lapply(x$attr, g)))
+  res4
 }
 
-g <- function(x) {
-  x$value
-}
+x <- test$dimension[[1]]$code
 
-xxx=test$dimension[[1]]$code %>% lapply(f)
+profvis::profvis(
+  {
+    r1 <- lapply(x, f)
 
-func <- function(resp) {
+    r2 = dplyr::bind_rows(r1)
+    #     tidyr::spread_(r2 ,key_col = "category", value_col = "value")
+  }
+)
+g <- function(x, y) rbind(unlist(x), unlist(y))
 
-  list_resp <- resp %>%
-    httr::content(as = "text") %>%
-    jsonlite::fromJSON(
-      simplifyVector = F,
-      simplifyDataFrame = F,
-      simplifyMatrix = F
-    )
+r2 <- lapply(r1, as.data.frame)
 
-    tab_res <- list_resp$dimension[[1]]$code %>%
-      lapply(
-        function(x) {
-          dplyr::bind_rows(
-            tibble::tibble(
-              category = c("label", "display"),
-              value = c(x$label, x$display)
-            ),
-            Reduce(dplyr::bind_rows, x$attr)
-          ) %>%
-            tibble::add_column(
-              id = rep(x$label, length(x$attr) + 2)
-            )
-        }
-      ) %>%
-      Reduce(rbind, .) %>%
-      tidyr::spread(key = category, value = value)
+microbenchmark::microbenchmark({
+  do.call(rbind, r1)
+}, {
+  plyr::rbind.fill(r2)
+},
+times = 10
+)
 
-}
-
-# jsonedit
-# tibble:::as_tibble.list
-# function (x, validate = TRUE, ...)
