@@ -91,18 +91,7 @@ test_that("get_gho_codes works", {
   )
   expect_output(
     print(codes_region),
-    "A 'GHO' object of 43 elements.
-
-                  Label   ID
-1                Africa  AFR
-2              Americas  AMR
-3       South-East Asia SEAR
-4                Europe  EUR
-5 Eastern Mediterranean  EMR
-6       Western Pacific  WPR
-...
-
-(Printing 6 first elements.)",
+    "A 'GHO' object of 43 elements.",
     fixed = TRUE
   )
 
@@ -111,7 +100,7 @@ test_that("get_gho_codes works", {
 
   expect_identical(
     dim(attr(codes_gho, "attrs")),
-    c(2196L, 7L)
+    c(2198L, 7L)
   )
   expect_output(
     print(codes_gho),

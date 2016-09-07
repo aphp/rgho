@@ -34,7 +34,7 @@
 #' @importFrom magrittr "%<>%"
 #' @importFrom magrittr "extract2"
 #'
-#' @importFrom tibble tibble
+#' @importFrom tibble as_tibble
 #'
 #' @importFrom dplyr filter_
 #' @importFrom dplyr bind_rows
@@ -45,6 +45,7 @@
 #' @importFrom lazyeval lazy_dots
 #'
 #' @importFrom stats runif
+#' @importFrom stats setNames
 #'
 #' @importFrom utils head
 #'

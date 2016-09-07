@@ -12,8 +12,8 @@ License: GPL (>= 3)
 LazyData: TRUE
 Depends: R (>= 3.2.2)
 Imports: httr, curl, jsonlite, memoise, readr,
-  magrittr, dplyr, tidyr, lazyeval
-Suggests: testthat, knitr, rmarkdown, tibble
+  magrittr, dplyr, tidyr, lazyeval, tibble
+Suggests: testthat, knitr, rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
 URL: https://github.com/pierucci/rgho, https://pierucci.github.io

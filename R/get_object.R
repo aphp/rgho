@@ -119,6 +119,6 @@ parse_json <- function(resp, type = c("dimension", "code")) {
 
   do.call(rbind, lapply(x, f)) %>%
     tibble::as_tibble() %>%
-    setNames(c("category", "value", "code")) %>%
+    stats::setNames(c("category", "value", "code")) %>%
     tidyr::spread_(key_col = "category", value_col = "value")
 }
