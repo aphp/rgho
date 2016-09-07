@@ -3,6 +3,7 @@
   * `verbose` and `retry` can now be set by `options()`.
   * Memoise results for a limited time (1h by default).
   * Request details explained in new vignette.
+  * Now relies on json instead of XML.
 
 # rgho 0.2.0
 
