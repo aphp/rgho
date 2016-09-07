@@ -114,11 +114,6 @@ IMR_ID
 RENDERER_ID",
     fixed = TRUE
   )
-  expect_output(
-    print(codes_region, n = Inf),
-    "43                               WHO High income countries",
-    fixed = TRUE
-  )
 })
 
 test_that("get_gho_data works", {
