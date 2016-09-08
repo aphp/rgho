@@ -99,8 +99,8 @@ test_that("get_gho_codes works", {
   codes_gho <- get_gho_codes()
 
   expect_identical(
-    dim(attr(codes_gho, "attrs")),
-    c(2198L, 7L)
+    dim(attr(codes_gho, "attrs"))[2],
+    7L
   )
   expect_output(
     print(codes_gho),
