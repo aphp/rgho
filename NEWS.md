@@ -1,6 +1,6 @@
-# rgho rc
+# rgho 0.2.1
 
-## New features
+## Backend changes
 
   * `verbose` and `retry` can now be set by `options()`.
   * Memoise results for a limited time (1h by default).
