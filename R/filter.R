@@ -8,7 +8,6 @@ filter_attrs <- function (x, ...) {
 filter_attrs_ <- function(x, .dots) {
   if (is.null(gho_attr <- attr(x, "attrs"))) {
     stop("Attempt to filter a GHO object with no attribute.")
-    return(x)
   }
 
   filtered_attrs <- gho_attr %>%

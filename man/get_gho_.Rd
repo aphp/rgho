@@ -5,9 +5,10 @@
 \alias{get_gho_}
 \title{GET a GHO URL}
 \usage{
-get_gho_(url, verbose = FALSE, retry = 5)
+get_gho_(url, verbose = options()$rgho.verbose,
+  retry = options()$rgho.retry)
 
-get_gho(url, verbose = FALSE, retry = 5)
+get_gho(url, verbose = options()$rgho.verbose, retry = options()$rgho.retry)
 }
 \arguments{
 \item{url}{the url to retrieve, given as a character string.}

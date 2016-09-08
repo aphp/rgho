@@ -96,4 +96,7 @@ test_that("wrong input fails", {
       attrs = b
     )
   )
+  expect_error(
+    rgho:::get_gho(url = "http://google.com/doesntexist", retry = 0)
+  )
 })

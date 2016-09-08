@@ -1,6 +1,6 @@
 Package: rgho
 Title: Access WHO Global Health Observatory Data from R
-Version: 0.2.0
+Version: 0.2.1
 Author: Antoine Filipovic-Pierucci [aut,cre]
 Maintainer: Antoine Filipovic-Pierucci <pierucci@gmail.com>
 Description: Access WHO Global Health Observatory
@@ -11,9 +11,9 @@ Description: Access WHO Global Health Observatory
 License: GPL (>= 3)
 LazyData: TRUE
 Depends: R (>= 3.2.2)
-Imports: httr, curl, xml2, memoise, readr,
-  magrittr, dplyr, tidyr, lazyeval
-Suggests: testthat, knitr, rmarkdown, tibble
+Imports: httr, curl, jsonlite, memoise, readr,
+  magrittr, dplyr, tidyr, lazyeval, tibble
+Suggests: testthat, knitr, rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
 URL: https://github.com/pierucci/rgho, https://pierucci.github.io
