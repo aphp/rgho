@@ -1,9 +1,15 @@
 # rgho rc
 
+## New features
+
   * `verbose` and `retry` can now be set by `options()`.
   * Memoise results for a limited time (1h by default).
-  * Request details explained in new vignette.
-  * Now relies on json instead of XML.
+  * Technical details are explained in a vignette.
+  * Package switched from XML to json.
+  
+## Bugfixes
+
+  * Test do not fail when new codes are added.
 
 # rgho 0.2.0
 
