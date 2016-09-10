@@ -1,8 +1,3 @@
-to_utf8 <- function(x) {
-  Encoding(x) <- "UTF-8"
-  x
-}
-
 clean_json <- function(x, verbose = options()$rgho.verbose,
                        n_print = 10) {
   stopifnot(length(x) == 1)
