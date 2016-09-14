@@ -1,4 +1,14 @@
+# rgho devel
+
+## Backend changes
+
+  * `get_gho_data()` no longer memoised.
+
 # rgho 0.2.1
+
+## Bugfixes
+
+  * Test do not fail when new codes are added.
 
 ## Backend changes
 
@@ -7,10 +17,6 @@
   * Technical details are explained in a vignette.
   * Package switched from XML to json.
   
-## Bugfixes
-
-  * Test do not fail when new codes are added.
-
 # rgho 0.2.0
 
   * Fix encoding problem with country names.
