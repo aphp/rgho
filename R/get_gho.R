@@ -43,12 +43,13 @@ get_gho_ <- function(url, verbose = options()$rgho.verbose,
 
         res <- try(httr::GET(
           url = url,
-          config = list(
+          config = c(
             proxy_list[[i]],
             httr::user_agent("https://pierucci.github.io/rgho/")
           )
         ), silent = TRUE)
-        if (! is_error(res)) break
+
+        if (! is_error(res) || res$status_code == 407L) break
 
         if (verbose) message(sprintf("Request failed:\n%s", format_error(res)))
         wait(n, verbose)

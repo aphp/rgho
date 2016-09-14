@@ -3,6 +3,10 @@
 ## Backend changes
 
   * `get_gho_data()` no longer memoised.
+  
+## Bugfixes
+
+  * Correctly use proxy settings.
 
 # rgho 0.2.1
 
