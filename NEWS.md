@@ -1,11 +1,12 @@
-# rgho devel
+# rgho 0.2.2
 
 ## Backend changes
 
   * `get_gho_data()` no longer memoised.
-  
+
 ## Bugfixes
 
+  * Filtering tests do not fail when new codes are added.
   * Correctly use proxy settings.
 
 # rgho 0.2.1
@@ -21,6 +22,10 @@
   * Technical details are explained in a vignette.
   * Package switched from XML to json.
   
+## Bugfixes
+
+  * Tests do not fail when new codes are added.
+
 # rgho 0.2.0
 
   * Fix encoding problem with country names.

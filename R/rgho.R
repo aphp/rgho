@@ -37,7 +37,6 @@
 #' @importFrom tibble as_tibble
 #'
 #' @importFrom dplyr filter_
-#' @importFrom dplyr bind_rows
 #' @importFrom dplyr select_
 #'
 #' @importFrom tidyr spread_
