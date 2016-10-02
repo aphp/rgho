@@ -1,3 +1,9 @@
+# rgho 0.2.2
+
+## Bugfixes
+
+  * Filtering tests do not fail when new codes are added.
+
 # rgho 0.2.1
 
 ## Backend changes
@@ -9,7 +15,7 @@
   
 ## Bugfixes
 
-  * Test do not fail when new codes are added.
+  * Tests do not fail when new codes are added.
 
 # rgho 0.2.0
 
