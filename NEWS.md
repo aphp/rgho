@@ -1,3 +1,9 @@
+# rgho 0.2.3
+
+## Bugfixes
+
+  * Removed test suite until we figure out a way to avoid breaking the build every time the GHO database is updated.
+  
 # rgho 0.2.2
 
 ## Bugfixes
