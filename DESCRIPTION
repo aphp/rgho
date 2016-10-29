@@ -26,5 +26,5 @@ Suggests: testthat,
           rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
-URL: https://github.com/pierucci/rgho, http://pierucci.org
+URL: https://github.com/pierucci/rgho, https://pierucci.org
 BugReports: https://github.com/pierucci/rgho/issues
