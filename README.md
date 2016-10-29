@@ -33,7 +33,7 @@ devtools::install_github("pierucci/rgho@devel")
 
 ## Dev
 
-[Antoine Filipović-Pierucci](https://pierucci.github.io/).
+[Antoine Filipović-Pierucci](https://pierucci.org).
 
 <h1 align="center">
 <a href="http://www.urc-eco.fr">
