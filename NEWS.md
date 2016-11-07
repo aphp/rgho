@@ -1,3 +1,9 @@
+# rgho devel
+
+## New features
+
+  * Proxy settings are now handled through an `rgho.http_proxy` option.
+
 # rgho 0.2.3
 
 ## Bugfixes

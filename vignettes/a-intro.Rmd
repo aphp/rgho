@@ -109,4 +109,4 @@ print(result, width = Inf)
 
 Other parameters than `format` can be specified to `get_gho_data()` (such as `apikey`, `asof`...). Parameters are listed on [this page](http://apps.who.int/gho/data/node.resources.api). Note that most parameters are not available to general users.
 
-For details about how the requests are performed and the option availables see `vignette("e-details", "rgho")`.
+For details about how the requests are performed and the option availables (especially proxy settings) see `vignette("e-details", "rgho")`.
