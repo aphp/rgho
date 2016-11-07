@@ -11,7 +11,8 @@ get_gho_(url, verbose = options()$rgho.verbose,
 get_gho(url, verbose = options()$rgho.verbose, retry = options()$rgho.retry)
 }
 \arguments{
-\item{url}{the url to retrieve, given as a character string.}
+\item{url}{the url to retrieve, given as a character
+string.}
 
 \item{verbose}{Verbose mode?}
 
@@ -21,10 +22,12 @@ get_gho(url, verbose = options()$rgho.verbose, retry = options()$rgho.retry)
 The result from \code{\link[httr]{GET}}.
 }
 \description{
-Given a url, tries to find local proxy settings and GET the content of the GHO page.
+Given a url, tries to find local proxy settings and GET
+the content of the GHO page.
 }
 \details{
-The function re-tries failed attempts using exponential backoff with jitter.
+The function re-tries failed attempts using exponential
+backoff with jitter.
 }
 \keyword{internal}
 
