@@ -42,7 +42,7 @@ get_gho_dimensions <- function() {
 #' get_gho_codes(dimension = "GHO")
 #'
 #' results <- get_gho_codes(dimension = "COUNTRY")
-#' filter_attrs(
+#' filter_gho(
 #'   results,
 #'   WHO_REGION_CODE == "EUR"
 #' )
