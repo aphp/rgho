@@ -1,4 +1,4 @@
-#' Values Taken by an Attribute
+#' Display Attribute Informations
 #'
 #' Given a GHO object and an attribute name, return the
 #' distinct values taken by the attribute.
@@ -9,7 +9,7 @@
 #' @return A character vector of the distinct values taken
 #'   by the attribute.
 #' @export
-values_attrs <- function(x, attribute) {
+display_attribute_values <- function(x, attribute) {
   gho_attr <- attr(x, "attr")
   stopifnot(
     ! is.null(gho_attr),
@@ -19,4 +19,10 @@ values_attrs <- function(x, attribute) {
 
   res <- gho_attr[[attribute]]
   sort(unique(res[! is.na(res)]))
+}
+
+#' @export
+#' @rdname display_attribute_values
+display_attributes <- function(x) {
+  names(attr(x, "attr"))
 }

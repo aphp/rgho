@@ -1,11 +1,18 @@
+#' Filter a GHO Object on Attribute Values
+#'
+#' @param x \code{gho} object to
+#'   filter.
+#' @param  ... Logical predicates. Multiple conditions are
+#'   combined with &.
+#'
+#' @return A \code{gho} object.
 #' @export
-#' @rdname get_gho_codes
-filter_attrs <- function (x, ...) {
+filter_gho <- function (x, ...) {
   .dots <- lazyeval::lazy_dots(...)
-  filter_attrs_(x, .dots = .dots)
+  filter_gho_(x, .dots = .dots)
 }
 
-filter_attrs_ <- function(x, .dots) {
+filter_gho_ <- function(x, .dots) {
   if (is.null(gho_attr <- attr(x, "attrs"))) {
     stop("Attempt to filter a GHO object with no attribute.")
   }

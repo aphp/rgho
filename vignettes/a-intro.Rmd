@@ -60,16 +60,19 @@ Dimension codes can be filtered according to their attributes.
 ```{r}
 results <- get_gho_codes(dimension = "COUNTRY")
 
-filter_attrs(
+filter_gho(
   results,
   WHO_REGION_CODE == "EUR"
 )
 ```
 
-Attribute values can be displayed.
+Attribute names and values can be displayed.
 
 ```{r}
-values_attrs(
+display_attributes(
+  results
+)
+display_attribute_values(
   results,
   "WHO_REGION_CODE"
 )

@@ -3,6 +3,10 @@
 ## New features
 
   * Proxy settings are now handled through an `rgho.http_proxy` option.
+  * Renamed functions:
+    * `filter_attrs()` => `filter_gho()`.
+    * `values_attrs()` => `display_attribute_values()`.
+  * Created function `display_attributes()`.
 
 # rgho 0.2.3
 

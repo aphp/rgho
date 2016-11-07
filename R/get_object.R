@@ -31,10 +31,6 @@ get_gho_dimensions <- function() {
 #' Returns GHO Codes for a Given Dimension
 #'
 #' @param dimension A GHO dimension.
-#' @param x For \code{filter}, \code{gho} object to
-#'   filter.
-#' @param  ... Logical predicates. Multiple conditions are
-#'   combined with &.
 #'
 #' @return GHO codes as a character vector, labels as a
 #'   \code{label} attribute and other attributes in a \code{attrs}
