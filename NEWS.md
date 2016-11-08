@@ -1,4 +1,4 @@
-# rgho devel
+# rgho 1.0.0
 
 ## New features
 
@@ -7,6 +7,7 @@
     * `filter_attrs()` => `filter_gho()`.
     * `values_attrs()` => `display_attribute_values()`.
   * Created function `display_attributes()`.
+  * Careful reintroduction of unit testing.
 
 # rgho 0.2.3
 
