@@ -1,10 +1,13 @@
 #' GET a GHO URL
 #'
-#' Given a url, tries to find local proxy settings and GET the content of the GHO page.
+#' Given a url, tries to find local proxy settings and GET
+#' the content of the GHO page.
 #'
-#' The function re-tries failed attempts using exponential backoff with jitter.
+#' The function re-tries failed attempts using exponential
+#' backoff with jitter.
 #'
-#' @param url the url to retrieve, given as a character string.
+#' @param url the url to retrieve, given as a character
+#'   string.
 #' @param verbose Verbose mode?
 #' @param retry Maximum number of \code{GET} re-trials.
 #'
@@ -12,54 +15,37 @@
 #' @keywords internal
 get_gho_ <- function(url, verbose = options()$rgho.verbose,
                      retry = options()$rgho.retry) {
-  proxy_list <- get_proxy_list(url)
+  proxy <- get_proxy()
 
-  if (verbose) message(sprintf("URL: %s", url))
+  if (verbose) {
+    message(sprintf("URL: %s", url))
 
-  if (is.null(proxy_list)) {
-    if (verbose) message("Trying request without proxy settings.")
-    n <- 0
-
-    while(n <= retry){
-      if (verbose) message(sprintf("Try #%i.", n))
-
-      res <- try(httr::GET(
-        url = url,
-        config = httr::user_agent("https://pierucci.github.io/rgho/")
-      ), silent = TRUE)
-      if (! is_error(res)) break
-
-      if (verbose) message(sprintf("Request failed:\n%s", format_error(res)))
-      wait(n, verbose)
-      n <- n + 1
-    }
-  } else {
-    for (i in seq_along(proxy_list)) {
-      if (verbose) message(sprintf("Trying request with proxy settings #%i.", i))
-
-      n <- 0
-      while(n <= retry){
-        if (verbose) message(sprintf("Try #%i.", n))
-
-        res <- try(httr::GET(
-          url = url,
-          config = list(
-            proxy_list[[i]],
-            httr::user_agent("https://pierucci.github.io/rgho/")
-          )
-        ), silent = TRUE)
-        if (! is_error(res)) break
-
-        if (verbose) message(sprintf("Request failed:\n%s", format_error(res)))
-        wait(n, verbose)
-        n <- n + 1
-      }
-
-      if (! is_error(res)) break
-
-      if (verbose) message("Failure.")
+    if (is.null(proxy)) {
+      message("Trying request without proxy settings.")
+    } else {
+      message("Trying request with proxy settings.")
     }
   }
+
+  n <- 0
+  while(n <= retry){
+    if (verbose) message(sprintf("Try #%i.", n))
+
+    res <- try(httr::GET(
+      url = url,
+      config = c(
+        proxy, # NULL is no proxy
+        httr::user_agent("https://pierucci.org/rgho/")
+      )
+    ), silent = TRUE)
+
+    if (! is_error(res) || res$status_code == 407L) break
+
+    if (verbose) message(sprintf("Request failed:\n%s", format_error(res)))
+    wait(n, verbose)
+    n <- n + 1
+  }
+
 
   if (is_error(res)) {
     stop(sprintf(

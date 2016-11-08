@@ -39,7 +39,7 @@
 #' )
 #' print(result, width = Inf)
 #'
-get_gho_data_ <- function(code, dimension = "GHO", filter = NULL, ...) {
+get_gho_data <- function(code, dimension = "GHO", filter = NULL, ...) {
 
   stopifnot(
     dimension %in% get_gho_dimensions(),
@@ -63,10 +63,3 @@ get_gho_data_ <- function(code, dimension = "GHO", filter = NULL, ...) {
     stop("No data returned by WHO GHO server.")
   }
 }
-
-#' @rdname get_gho_data_
-#' @export
-get_gho_data <- memoise::memoize(
-  get_gho_data_,
-  ~ memoise::timeout(options()$rgho.memotime)
-)

@@ -14,20 +14,22 @@ vignette: >
 library(rgho)
 ```
 
-# Verbose mode
+## Verbose mode
 
 Request informations can be displayed by setting `options("rgho.verbose")` to `TRUE`.
 
-# Memoisation
+## Memoisation
 
 Request results are memoised. The results of requests are cached, and repeating a request with the same parameters will return the cached result without doing a new query.
 
 The cache is cleared after a delay in order to avoid returning out-of-date data. By default this delay is set to  `options("rgho.memotime")` seconds (by default `r options("rgho.memotime")`).
 
-# Proxy settings
+Changing the option has no impact on requests that were already memoised.
 
-`rgho` tries to fetch MS Windows proxy settings with `curl::ie_get_proxy_for_url()`. If a list of proxies is returned the request will loop over the list until it succeeds.
+## Proxy settings
 
-# Retry failed requests
+The proxy settings are set through the `rgho.http_proxy` option. Proxy is passed as a character strings of the form `"http://username:password@url:port"`.
+
+## Retry failed requests
 
 Failed requests are retried a maximum of `options("rgho.retry")` (by default `r options("rgho.retry")` times).

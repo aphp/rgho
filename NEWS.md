@@ -1,3 +1,14 @@
+# rgho 1.0.0
+
+## New features
+
+  * Proxy settings are now handled through an `rgho.http_proxy` option.
+  * Renamed functions:
+    * `filter_attrs()` => `filter_gho()`.
+    * `values_attrs()` => `display_attribute_values()`.
+  * Created function `display_attributes()`.
+  * Careful reintroduction of unit testing.
+
 # rgho 0.2.3
 
 ## Bugfixes
@@ -6,11 +17,20 @@
   
 # rgho 0.2.2
 
+## Backend changes
+
+  * `get_gho_data()` no longer memoised.
+
 ## Bugfixes
 
   * Filtering tests do not fail when new codes are added.
+  * Correctly use proxy settings.
 
 # rgho 0.2.1
+
+## Bugfixes
+
+  * Test do not fail when new codes are added.
 
 ## Backend changes
 
