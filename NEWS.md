@@ -3,6 +3,7 @@
 ## Backend changes
 
   * Implemented vector methods for `gho` objects.
+  * New `rgho.n` option for printing length.
 
 # rgho 1.0.0
 
