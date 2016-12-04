@@ -16,8 +16,12 @@ get_gho_codes(dimension = "GHO")
 \arguments{
 \item{dimension}{A GHO dimension.}
 
+\item{x}{Object to print.}
+
 \item{n}{Number of lines to print (if missing will print
 the option \code{rgho.n} rows).}
+
+\item{...}{Extra arguments passed to print.}
 }
 \value{
 GHO dimensions/codes.
