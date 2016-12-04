@@ -7,7 +7,7 @@ to_data_frame <- function(x, n = length(x)) {
 }
 
 #' @export
-print.gho <- function(x, n = 6, ...) {
+print.gho <- function(x, n = options()$rgho.n, ...) {
   if (n == Inf) {
     n <- length(x)
   }

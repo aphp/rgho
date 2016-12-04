@@ -4,7 +4,8 @@
     rgho.verbose = FALSE,
     rgho.retry = 5,
     rgho.memotime = 3600,
-    rgho.http_proxy = NULL
+    rgho.http_proxy = NULL,
+    rgho.n = 6
   )
   toset <- !(names(op.rgho) %in% names(op))
   if(any(toset)) options(op.rgho[toset])
