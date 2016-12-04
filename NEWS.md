@@ -1,3 +1,9 @@
+# rgho devel
+
+## Backend changes
+
+  * Implemented vector methods for `gho` objects.
+
 # rgho 1.0.0
 
 ## New features
