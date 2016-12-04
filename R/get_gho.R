@@ -39,6 +39,7 @@ get_gho_ <- function(url, verbose = options()$rgho.verbose,
       )
     ), silent = TRUE)
 
+    # dont retry if proxy error
     if (! is_error(res) || res$status_code == 407L) break
 
     if (verbose) message(sprintf("Request failed:\n%s", format_error(res)))
@@ -87,5 +88,5 @@ wait <- function(n, verbose = FALSE) {
     "Waiting %.1fs.",
     waiting_time
   ))
-  Sys.sleep(runif(1, 1, 1+2^n))
+  Sys.sleep(waiting_time)
 }

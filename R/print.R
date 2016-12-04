@@ -6,6 +6,7 @@ to_data_frame <- function(x, n = length(x)) {
   )
 }
 
+#' @rdname man-gho
 #' @export
 print.gho <- function(x, n = options()$rgho.n, ...) {
   if (n == Inf) {
