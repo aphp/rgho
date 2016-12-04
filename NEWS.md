@@ -4,6 +4,7 @@
 
   * Implemented vector methods for `gho` objects.
   * New `rgho.n` option for printing length.
+  * Common help file for getter functions.
 
 # rgho 1.0.0
 

@@ -1,13 +1,5 @@
-#' Returns Available GHO Dimensions
-#'
-#' @return GHO dimensions as a character vector, and labels as a \code{label} attribute.
-#'
+#' @rdname man-gho
 #' @export
-#'
-#' @examples
-#'
-#' get_gho_dimensions()
-#'
 get_gho_dimensions <- function() {
   resp <- get_gho(
     url = build_gho_url(dimension = NULL, format = "json")
@@ -28,25 +20,8 @@ get_gho_dimensions <- function() {
   )
 }
 
-#' Returns GHO Codes for a Given Dimension
-#'
-#' @param dimension A GHO dimension.
-#'
-#' @return GHO codes as a character vector, labels as a
-#'   \code{label} attribute and other attributes in a \code{attrs}
-#'   attribute, as a \code{data_frame}.
+#' @rdname man-gho
 #' @export
-#'
-#' @examples
-#'
-#' get_gho_codes(dimension = "GHO")
-#'
-#' results <- get_gho_codes(dimension = "COUNTRY")
-#' filter_gho(
-#'   results,
-#'   WHO_REGION_CODE == "EUR"
-#' )
-#'
 get_gho_codes <- function(dimension = "GHO") {
   stopifnot(
     dimension %in% get_gho_dimensions()
