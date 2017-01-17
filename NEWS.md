@@ -1,5 +1,9 @@
 # rgho devel
 
+## Bugfixes
+
+  * Fixed bug where displayed waiting time was not used.
+
 ## Backend changes
 
   * Implemented vector methods for `gho` objects.
