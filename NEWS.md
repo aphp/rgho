@@ -1,3 +1,15 @@
+# rgho 1.0.1
+
+## Bugfixes
+
+  * Fixed bug where displayed waiting time was not used.
+
+## Backend changes
+
+  * Implemented vector methods for `gho` objects.
+  * New `rgho.n` option for printing length.
+  * Common help file for getter functions.
+
 # rgho 1.0.0
 
 ## New features

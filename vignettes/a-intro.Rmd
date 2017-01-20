@@ -37,6 +37,8 @@ get_gho_codes(dimension = "COUNTRY")
 get_gho_codes(dimension = "GHO")
 ```
 
+The number of printed items can be changed by the option `rgho.n`.
+
 ## Search
 
 The function `search_dimensions()` and `search_codes()` research a term in dimension or codes labels, respectively.
