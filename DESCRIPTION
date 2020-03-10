@@ -1,8 +1,8 @@
 Package: rgho
 Title: Access WHO Global Health Observatory Data from R
-Version: 1.0.1
+Version: 2.0
 Author: Antoine Filipovic-Pierucci [aut,cre]
-Maintainer: Antoine Filipovic-Pierucci <pierucci@gmail.com>
+Maintainer: Kevin Zarca <kevin.zarca@gmail.com>
 Description: Access WHO Global Health Observatory
     (<http://www.who.int/gho/>)
     data from R via the Athena web service
@@ -27,6 +27,6 @@ Suggests: testthat,
           knitr,
           rmarkdown
 VignetteBuilder: knitr
-RoxygenNote: 5.0.1
-URL: https://github.com/pierucci/rgho, https://pierucci.org
+RoxygenNote: 6.1.1
+URL: https://github.com/kzarca/rgho
 BugReports: https://github.com/pierucci/rgho/issues

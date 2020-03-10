@@ -13,4 +13,3 @@ A proxy, or \code{NULL} if not proxy are found.
 Tries to find the local proxy settings to access a given url.
 }
 \keyword{internal}
-

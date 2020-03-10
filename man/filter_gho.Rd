@@ -19,4 +19,3 @@ A \code{gho} object.
 \description{
 Filter a GHO Object on Attribute Values
 }
-

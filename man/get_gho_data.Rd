@@ -51,4 +51,3 @@ result <- get_gho_data(
 print(result, width = Inf)
 
 }
-

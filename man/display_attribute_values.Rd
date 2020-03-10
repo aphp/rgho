@@ -22,4 +22,3 @@ A character vector of the distinct values taken
 Given a GHO object and an attribute name, return the
 distinct values taken by the attribute.
 }
-

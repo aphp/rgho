@@ -25,4 +25,3 @@ An URL as a string.
 Construct GHO request URL
 }
 \keyword{internal}
-

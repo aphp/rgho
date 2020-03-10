@@ -1,3 +1,7 @@
+# rgho 2.0
+
+  * Changed repository
+
 # rgho 1.0.1
 
 ## Bugfixes

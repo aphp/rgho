@@ -20,4 +20,3 @@ A \code{gho} object.
 Check and Build a gho Object
 }
 \keyword{internal}
-
