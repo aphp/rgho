@@ -1,6 +1,6 @@
 # rgho - Access WHO Global Health Observatory Data From R
 
-[![Travis-CI Build Status](https://travis-ci.org/pierucci/rgho.svg?branch=devel)](https://travis-ci.org/pierucci/rgho) [![](http://www.r-pkg.org/badges/version/rgho)](http://www.r-pkg.org/pkg/rgho) [![Coverage Status](https://img.shields.io/codecov/c/github/pierucci/rgho/devel.svg)](https://codecov.io/gh/pierucci/rgho/branch/devel)
+[![Travis-CI Build Status](https://travis-ci.org/pierucci/rgho.svg?branch=devel)](https://travis-ci.org/pierucci/rgho) [![](http://www.r-pkg.org/badges/version/rgho)](http://www.r-pkg.org/pkg/rgho) 
 
 `rgho` is an `R` package to access [WHO GHO data](http://www.who.int/gho/database/en/) from `R` via the Athena web service, an API providing a simple query interface to the World Health Organization's data and statistics content.
 
@@ -33,7 +33,7 @@ devtools::install_github("pierucci/rgho@devel")
 
 ## Dev
 
-[Antoine Filipović-Pierucci](https://pierucci.org).
+Antoine Filipović-Pierucci
 
 <h1 align="center">
 <a href="http://www.urc-eco.fr">
