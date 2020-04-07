@@ -4,8 +4,13 @@
 \alias{build_gho_url}
 \title{Construct GHO request URL}
 \usage{
-build_gho_url(base_url = "http://apps.who.int/gho/athena/api/",
-  dimension = "GHO", code = NULL, filter = NULL, ...)
+build_gho_url(
+  base_url = "http://apps.who.int/gho/athena/api/",
+  dimension = "GHO",
+  code = NULL,
+  filter = NULL,
+  ...
+)
 }
 \arguments{
 \item{base_url}{Base URL of the API.}

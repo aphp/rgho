@@ -3,7 +3,6 @@
 \docType{package}
 \name{rgho}
 \alias{rgho}
-\alias{rgho-package}
 \title{rgho: Access WHO Global Health Observatory Data From R}
 \description{
 Access WHO Global Health Observatory data from R via the
