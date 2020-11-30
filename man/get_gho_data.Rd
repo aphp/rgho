@@ -33,6 +33,7 @@ the WHO website
 }
 \examples{
 
+\dontrun{
 result <- get_gho_data(
   dimension = "GHO",
   code = "MDG_0000000001"
@@ -49,5 +50,5 @@ result <- get_gho_data(
   )
 )
 print(result, width = Inf)
-
+}
 }

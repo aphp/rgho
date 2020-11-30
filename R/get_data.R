@@ -22,6 +22,7 @@
 #'
 #' @examples
 #'
+#'\dontrun{
 #' result <- get_gho_data(
 #'   dimension = "GHO",
 #'   code = "MDG_0000000001"
@@ -38,7 +39,7 @@
 #'   )
 #' )
 #' print(result, width = Inf)
-#'
+#'}
 get_gho_data <- function(code, dimension = "GHO", filter = NULL, ...) {
 
   stopifnot(
