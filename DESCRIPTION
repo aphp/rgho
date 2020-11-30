@@ -1,12 +1,12 @@
 Package: rgho
 Title: Access WHO Global Health Observatory Data from R
-Version: 2.0.0.9000
+Version: 2.0.1
 Author: Antoine Filipovic-Pierucci [aut,cre]
 Maintainer: Kevin Zarca <kevin.zarca@gmail.com>
 Description: Access WHO Global Health Observatory
-    (<http://www.who.int/gho/>)
+    (<https://www.who.int/data/gho/>)
     data from R via the Athena web service
-    (<http://apps.who.int/gho/data/node.resources.api>),
+    (<https://apps.who.int/gho/data/node.resources.api>),
     an application program interface providing
     a simple query interface to the World
     Health Organization's data and statistics content.
@@ -22,11 +22,12 @@ Imports: curl,
          memoise,
          readr,
          tibble,
-         tidyr
+         tidyr,
+         rlang
 Suggests: testthat,
           knitr,
           rmarkdown
 VignetteBuilder: knitr
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 URL: https://github.com/kzarca/rgho
 BugReports: https://github.com/pierucci/rgho/issues

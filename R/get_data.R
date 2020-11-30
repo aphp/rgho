@@ -8,7 +8,7 @@
 #'
 #' Query parameters follow the specification described on
 #' the WHO website
-#' \url{http://apps.who.int/gho/data/node.resources.api}.
+#' \url{https://apps.who.int/gho/data/node.resources.api}.
 #'
 #' @param code A GHO code.
 #' @param dimension A GHO dimension.

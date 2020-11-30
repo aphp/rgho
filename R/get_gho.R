@@ -39,8 +39,9 @@ get_gho_ <- function(url, verbose = options()$rgho.verbose,
       )
     ), silent = TRUE)
 
+
     # dont retry if proxy error
-    if (! is_error(res) || res$status_code == 407L) break
+    if (! is_error(res) || length(res) > 1 && res$status_code == 407L) break
 
     if (verbose) message(sprintf("Request failed:\n%s", format_error(res)))
     wait(n, verbose)
@@ -49,11 +50,11 @@ get_gho_ <- function(url, verbose = options()$rgho.verbose,
 
 
   if (is_error(res)) {
-    stop(sprintf(
+    message(sprintf(
       "Error during request:\n%s",
-      format_error(res),
-      call. = FALSE
+      format_error(res)
     ))
+    stop_quietly()
   }
 
   if (verbose) message("Success.")

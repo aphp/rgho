@@ -36,9 +36,6 @@
 #'
 #' @importFrom tibble as_tibble
 #'
-#' @importFrom dplyr filter_
-#' @importFrom dplyr select_
-#'
 #' @importFrom tidyr spread_
 #'
 #' @importFrom lazyeval lazy_dots
@@ -49,5 +46,7 @@
 #' @importFrom utils head
 #'
 #' @importFrom jsonlite fromJSON
+#'
+#' @importFrom rlang quos "!!!" .data
 #'
 NULL

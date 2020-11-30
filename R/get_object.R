@@ -16,7 +16,7 @@ get_gho_dimensions <- function() {
 
   build_gho(
     tab_res$label, labels = tab_res$display,
-    attrs = dplyr::select_(tab_res, ~ -label, ~ -display)
+    attrs = dplyr::select(tab_res, -.data$label, -.data$display)
   )
 }
 
@@ -42,7 +42,7 @@ get_gho_codes <- function(dimension = "GHO") {
 
   build_gho(
     tab_res$label, labels = tab_res$display,
-    attrs = dplyr::select_(tab_res, ~ -label, ~ -display)
+    attrs = dplyr::select(tab_res, -.data$label, -.data$display)
   )
 }
 
@@ -89,7 +89,7 @@ parse_json <- function(resp, type = c("dimension", "code")) {
   }
 
   do.call(rbind, lapply(x, f)) %>%
-    tibble::as_tibble() %>%
+    tibble::as_tibble(.name_repair = "unique") %>%
     stats::setNames(c("category", "value", "code")) %>%
     tidyr::spread_(key_col = "category", value_col = "value")
 }

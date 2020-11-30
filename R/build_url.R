@@ -8,7 +8,7 @@
 #'
 #' @return An URL as a string.
 #' @keywords internal
-build_gho_url <- function(base_url = "http://apps.who.int/gho/athena/api/",
+build_gho_url <- function(base_url = "https://apps.who.int/gho/athena/api/",
                           dimension = "GHO", code = NULL,
                           filter = NULL, ...) {
 

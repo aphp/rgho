@@ -14,7 +14,7 @@ vignette: >
 library(rgho)
 ```
 
-`rgho` is an `R` package to access [WHO GHO data](http://www.who.int/gho/en/) from R via the Athena web service, an API providing a simple query interface to the World Health Organization's data and statistics content.
+`rgho` is an `R` package to access [WHO GHO data](https://www.who.int/data/gho/) from R via the Athena web service, an API providing a simple query interface to the World Health Organization's data and statistics content.
 
 ## The Global Health Observatory
 
@@ -112,6 +112,6 @@ print(result, width = Inf)
 
 ## Other parameters
 
-Other parameters than `format` can be specified to `get_gho_data()` (such as `apikey`, `asof`...). Parameters are listed on [this page](http://apps.who.int/gho/data/node.resources.api). Note that most parameters are not available to general users.
+Other parameters than `format` can be specified to `get_gho_data()` (such as `apikey`, `asof`...). Parameters are listed on [this page](https://apps.who.int/gho/data/node.resources.api). Note that most parameters are not available to general users.
 
 For details about how the requests are performed and the option availables (especially proxy settings) see `vignette("e-details", "rgho")`.

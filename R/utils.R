@@ -25,3 +25,10 @@ clean_json <- function(x, verbose = options()$rgho.verbose,
 
   gsub(pattern, '\\1\\"', x)
 }
+
+stop_quietly <- function() {
+  opt <- options(show.error.messages = FALSE)
+  on.exit(options(opt))
+  stop()
+}
+

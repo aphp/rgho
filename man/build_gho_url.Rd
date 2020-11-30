@@ -5,7 +5,7 @@
 \title{Construct GHO request URL}
 \usage{
 build_gho_url(
-  base_url = "http://apps.who.int/gho/athena/api/",
+  base_url = "https://apps.who.int/gho/athena/api/",
   dimension = "GHO",
   code = NULL,
   filter = NULL,
