@@ -33,10 +33,10 @@ devtools::install_github("pierucci/rgho@devel")
 
 ## Dev
 
-Antoine Filipović-Pierucci
+Antoine Filipović-Pierucci & Kevin Zarca
 
 <h1 align="center">
-<a href="https://www.urc-eco.fr">
+<a href="http://recherche-innovation.aphp.fr/urc-eco/">
 	<img width="220" src="./inst/media/logo.png" title="Special thanks to Dave Null, our contact who processed all the emails we send to WHO.">
 </a>
 </h1>
