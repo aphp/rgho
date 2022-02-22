@@ -26,9 +26,32 @@ clean_json <- function(x, verbose = options()$rgho.verbose,
   gsub(pattern, '\\1\\"', x)
 }
 
-stop_quietly <- function() {
-  opt <- options(show.error.messages = FALSE)
-  on.exit(options(opt))
-  stop()
+gracefully_fail <- function(remote_file, config) {
+  #https://community.rstudio.com/t/internet-resources-should-fail-gracefully/49199/12
+  try_GET <- function(x, ...) {
+    tryCatch(
+      httr::GET(url = x, ...),
+      error = function(e) conditionMessage(e),
+      warning = function(w) conditionMessage(w)
+    )
+  }
+  is_response <- function(x) {
+    class(x) == "response"
+  }
+
+  # First check internet connection
+  if (!curl::has_internet()) {
+    return(structure(list(), message = "No internet connection."))
+  }
+  # Then try for timeout problems
+  resp <- try_GET(remote_file, config = config)
+  if (!is_response(resp)) {
+    return(structure(list(), message = resp))
+  }
+  # Then stop if status > 400
+  if (httr::http_error(resp)) {
+    return(structure(list(), message = httr::http_status(resp)$message))
+  }
+  resp
 }
 

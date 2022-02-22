@@ -27,38 +27,31 @@ get_gho_ <- function(url, verbose = options()$rgho.verbose,
     }
   }
 
+
   n <- 0
   while(n <= retry){
     if (verbose) message(sprintf("Try #%i.", n))
 
-    res <- try(httr::GET(
-      url = url,
-      config = c(
-        proxy, # NULL is no proxy
-        httr::user_agent("https://pierucci.org/rgho/")
-      )
-    ), silent = TRUE)
-
+    res <- gracefully_fail(url, config = c(
+      proxy, # NULL is no proxy
+      httr::user_agent("https://pierucci.org/rgho/")
+    ))
 
     # dont retry if proxy error
-    if (! is_error(res) || length(res) > 1 && res$status_code == 407L) break
+    if (length(res)){
+      if (res$status_code == 407L | res$status_code == 200L) break
+    }
 
     if (verbose) message(sprintf("Request failed:\n%s", format_error(res)))
     wait(n, verbose)
     n <- n + 1
   }
-
-
-  if (is_error(res)) {
-    message(sprintf(
-      "Error during request:\n%s",
-      format_error(res)
-    ))
-    stop_quietly()
+  if (length(res) && res$status_code == 200L){
+    if (verbose) message("Success.")
+    res
+  } else {
+    message(attr(res, "message"))
   }
-
-  if (verbose) message("Success.")
-  res
 }
 
 #' @rdname get_gho_

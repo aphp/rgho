@@ -1,4 +1,5 @@
-# rgho 2.0.1.9000
+# rgho 2.0.2
+  * better handles connection fails
 
 
 # rgho 2.0.1
