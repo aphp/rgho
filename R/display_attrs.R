@@ -10,10 +10,7 @@
 #'   by the attribute.
 #' @export
 display_attribute_values <- function(x, attribute) {
-  if(!length(x) & !is.null(attr(x, "message"))) {
-    message(attr(x, "message"))
-    return(invisible(x))
-  }
+  return_if_message(x)
   gho_attr <- attr(x, "attr")
   stopifnot(
     ! is.null(gho_attr),

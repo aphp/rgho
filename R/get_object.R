@@ -4,7 +4,7 @@ get_gho_dimensions <- function() {
   resp <- get_gho(
     url = build_gho_url(dimension = NULL, format = "json")
   )
-  if(!length(resp) & !is.null(attr(resp, "message"))) return(invisible(resp))
+  return_if_message(resp)
 
   if (httr::http_type(resp) != "application/json") {
     stop(sprintf(
@@ -25,6 +25,7 @@ get_gho_dimensions <- function() {
 #' @export
 get_gho_codes <- function(dimension = "GHO") {
   dims <- get_gho_dimensions()
+  return_if_message(dims)
   if(!length(dims) & !is.null(attr(dims, "message"))) return(invisible(dims))
   stopifnot(
     dimension %in% get_gho_dimensions()

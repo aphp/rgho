@@ -61,10 +61,11 @@ search_gho(result, "asia")
 Dimension codes can be filtered according to their attributes.
 
 ```{r}
-get_gho_codes(dimension = "COUNTRY" ) %>%
-  filter_gho(
-    WHO_REGION_CODE == "EUR"
-  )
+results <- get_gho_codes(dimension = "COUNTRY")
+filter_gho(
+  results,
+  WHO_REGION_CODE == "EUR"
+)
 ```
 
 Attribute names and values can be displayed.
@@ -89,7 +90,7 @@ result <- get_gho_data(
   code = "MDG_0000000001"
 )
 
-print.gho(result, width = Inf)
+print(result, width = Inf)
 ```
 
 ## Filter requests
@@ -106,7 +107,7 @@ result <- get_gho_data(
   )
 )
 
-print.gho(result, width = Inf)
+print(result, width = Inf)
 ```
 
 ## Other parameters

@@ -1,4 +1,5 @@
 to_data_frame <- function(x, n = length(x)) {
+  if (!length(x)) return(data.frame())
   data.frame(
     Label = head(attr(x, "labels"), n = n),
     ID = head(as.vector(x), n = n),

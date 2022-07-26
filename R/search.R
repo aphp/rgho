@@ -18,12 +18,7 @@
 #' search_gho(result, "asia")
 #'
 search_gho <- function(gho, x) {
-  if(!length(gho) & !is.null(attr(gho, "message"))) {
-    return({
-      message(attr(gho, "message"))
-      invisible(gho)
-    })
-  }
+  return_if_message(gho, TRUE)
   pos <- grep(
     tolower(x),
     tolower(attr(gho, "labels")),

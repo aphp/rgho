@@ -13,10 +13,7 @@
 # }
 
 filter_gho <- function(x, ...) {
-  if(!length(x) & !is.null(attr(x, "message"))) {
-    message(attr(x, "message"))
-    return(invisible(x))
-  }
+  return_if_message(x)
   if (is.null(gho_attr <- attr(x, "attrs"))) {
     stop("Attempt to filter a GHO object with no attribute.")
   }

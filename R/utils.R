@@ -55,3 +55,15 @@ gracefully_fail <- function(remote_file, config) {
   resp
 }
 
+return_if_message <- function(x, display = FALSE) {
+  if(!length(x) & !is.null(attr(x, "message"))) {
+    if(display) message(attr(x, 'message'))
+    x_ <- rlang::quo(invisible(structure(list(),
+                                         message = attr(x, "message"),
+                                         class = "gho")))
+    call <- rlang::expr(return(rlang::eval_tidy(!!x_)))
+    rlang::eval_bare(call, env = parent.frame())
+  }
+}
+
+

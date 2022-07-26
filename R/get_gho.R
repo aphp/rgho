@@ -56,10 +56,10 @@ get_gho_ <- function(url, verbose = options()$rgho.verbose,
 }
 
 #' @rdname get_gho_
-get_gho <- #memoise::memoise(
-  get_gho_#,
- # ~ memoise::timeout(options()$rgho.memotime)
-#)
+get_gho <- memoise::memoise(
+  get_gho_,
+  ~ memoise::timeout(options()$rgho.memotime)
+)
 
 is_error <- function(x) {
   inherits(x, "try-error") || httr::http_error(x)
