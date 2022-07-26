@@ -18,6 +18,12 @@
 #' search_gho(result, "asia")
 #'
 search_gho <- function(gho, x) {
+  if(!length(gho) & !is.null(attr(gho, "message"))) {
+    return({
+      message(attr(gho, "message"))
+      invisible(gho)
+    })
+  }
   pos <- grep(
     tolower(x),
     tolower(attr(gho, "labels")),
@@ -30,7 +36,6 @@ search_gho <- function(gho, x) {
   } else {
     attrs <- NULL
   }
-
   build_gho(
     gho[pos],
     labels = attr(gho, "labels")[pos],

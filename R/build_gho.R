@@ -7,6 +7,11 @@
 #' @return A \code{gho} object.
 #' @keywords internal
 build_gho <- function(x, labels, attrs = NULL) {
+  if(!length(x) & !is.null(attr(x, "message"))) {
+    return(
+      invisible(structure(x, class="gho"))
+    )
+  }
   stopifnot(
     is.null(dim(x)),
     is.null(dim(labels)),

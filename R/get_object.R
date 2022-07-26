@@ -4,6 +4,7 @@ get_gho_dimensions <- function() {
   resp <- get_gho(
     url = build_gho_url(dimension = NULL, format = "json")
   )
+  if(!length(resp) & !is.null(attr(resp, "message"))) return(invisible(resp))
 
   if (httr::http_type(resp) != "application/json") {
     stop(sprintf(
@@ -23,6 +24,8 @@ get_gho_dimensions <- function() {
 #' @rdname man-gho
 #' @export
 get_gho_codes <- function(dimension = "GHO") {
+  dims <- get_gho_dimensions()
+  if(!length(dims) & !is.null(attr(dims, "message"))) return(invisible(dims))
   stopifnot(
     dimension %in% get_gho_dimensions()
   )
@@ -30,6 +33,8 @@ get_gho_codes <- function(dimension = "GHO") {
   resp <- get_gho(
     url = build_gho_url(dimension = dimension, format = "json")
   )
+
+  if(!length(resp) & !is.null(attr(resp, "message"))) return(invisible(resp))
 
   if (httr::http_type(resp) != "application/json") {
     stop(sprintf(
@@ -47,6 +52,7 @@ get_gho_codes <- function(dimension = "GHO") {
 }
 
 parse_json <- function(resp, type = c("dimension", "code")) {
+  if (is.null(resp)) return(NULL)
   type <- match.arg(type)
 
   list_resp <- resp %>%

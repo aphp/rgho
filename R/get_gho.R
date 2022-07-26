@@ -42,7 +42,7 @@ get_gho_ <- function(url, verbose = options()$rgho.verbose,
       if (res$status_code == 407L | res$status_code == 200L) break
     }
 
-    if (verbose) message(sprintf("Request failed:\n%s", format_error(res)))
+    if (verbose & length(res)) message(sprintf("Request failed:\n%s"))
     wait(n, verbose)
     n <- n + 1
   }
@@ -51,14 +51,15 @@ get_gho_ <- function(url, verbose = options()$rgho.verbose,
     res
   } else {
     message(attr(res, "message"))
+    invisible(res)
   }
 }
 
 #' @rdname get_gho_
-get_gho <- memoise::memoise(
-  get_gho_,
-  ~ memoise::timeout(options()$rgho.memotime)
-)
+get_gho <- #memoise::memoise(
+  get_gho_#,
+ # ~ memoise::timeout(options()$rgho.memotime)
+#)
 
 is_error <- function(x) {
   inherits(x, "try-error") || httr::http_error(x)

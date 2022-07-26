@@ -12,6 +12,7 @@ vignette: >
 
 ```{r, echo=FALSE, include=FALSE}
 library(rgho)
+library(dplyr)
 ```
 
 `rgho` is an `R` package to access [WHO GHO data](https://www.who.int/data/gho/) from R via the Athena web service, an API providing a simple query interface to the World Health Organization's data and statistics content.
@@ -60,12 +61,10 @@ search_gho(result, "asia")
 Dimension codes can be filtered according to their attributes.
 
 ```{r}
-results <- get_gho_codes(dimension = "COUNTRY")
-
-filter_gho(
-  results,
-  WHO_REGION_CODE == "EUR"
-)
+get_gho_codes(dimension = "COUNTRY" ) %>%
+  filter_gho(
+    WHO_REGION_CODE == "EUR"
+  )
 ```
 
 Attribute names and values can be displayed.
@@ -90,7 +89,7 @@ result <- get_gho_data(
   code = "MDG_0000000001"
 )
 
-print(result, width = Inf)
+print.gho(result, width = Inf)
 ```
 
 ## Filter requests
@@ -107,7 +106,7 @@ result <- get_gho_data(
   )
 )
 
-print(result, width = Inf)
+print.gho(result, width = Inf)
 ```
 
 ## Other parameters

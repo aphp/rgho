@@ -41,7 +41,11 @@
 #' print(result, width = Inf)
 #'}
 get_gho_data <- function(code, dimension = "GHO", filter = NULL, ...) {
-
+  dimensions <- get_gho_dimensions()
+  if(!length(dimensions) & !is.null(attr(dimensions, "message"))) {
+    message(attr(dimensions, "message"))
+    return(invisible(dimensions))
+  }
   stopifnot(
     dimension %in% get_gho_dimensions(),
     code %in% get_gho_codes(dimension = dimension)
