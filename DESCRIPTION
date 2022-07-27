@@ -1,7 +1,7 @@
 Package: rgho
 Title: Access WHO Global Health Observatory Data from R
-Version: 2.1.0
-Author@R: c(
+Version: 3.0.0
+Authors@R: c(
     person("Kevin", "Zarca", email = "kevin.zarca@gmail.com", role = c("aut", "cre")),
     person("Antoine", "Filipovic-Pierucci", role = "aut")
     )
@@ -14,21 +14,20 @@ Description: Access WHO Global Health Observatory
     Health Organization's data and statistics content.
 License: GPL (>= 3)
 LazyData: TRUE
-Depends: R (>= 3.2.2)
+Depends: R (>= 4.0.0)
 Imports: curl,
          dplyr,
          httr,
-         jsonlite,
          magrittr,
-         memoise,
-         readr,
          tibble,
          tidyr,
-         rlang
+         rlang (>= 1.0.0),
+         ODataQuery
 Suggests: testthat,
           knitr,
           rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 7.2.0
-URL: https://github.com/kzarca/rgho
+Roxygen: list(markdown = TRUE)
 BugReports: https://github.com/pierucci/rgho/issues
+Encoding: UTF-8

@@ -1,116 +1,31 @@
 context("build_url")
 
-test_that("normal inputs works", {
+test_that("api base url is correct", {
   expect_identical(
-    rgho:::build_gho_url(),
-    "https://apps.who.int/gho/athena/api/GHO"
+    rgho:::get_gho()$url,
+    "https://ghoapi.azureedge.net/api/"
   )
-  expect_identical(
-    rgho:::build_gho_url(dimension = "COUNTRY"),
-    "https://apps.who.int/gho/athena/api/COUNTRY"
-  )
-  expect_identical(
-    rgho:::build_gho_url(dimension = NULL),
-    "https://apps.who.int/gho/athena/api/"
-  )
-  expect_identical(
-    rgho:::build_gho_url(base_url = "https://google.com"),
-    "https://google.com/GHO"
-  )
-  expect_identical(
-    rgho:::build_gho_url(code = "xxx"),
-    "https://apps.who.int/gho/athena/api/GHO/xxx"
-  )
-  expect_identical(
-    rgho:::build_gho_url(dimension = "COUNTRY", code = "yyy"),
-    "https://apps.who.int/gho/athena/api/COUNTRY/yyy"
-  )
-  expect_identical(
-    rgho:::build_gho_url(dimension = "COUNTRY", code = "yyy",
-                         filter = list(a = 1, b = 2)),
-    "https://apps.who.int/gho/athena/api/COUNTRY/yyy?filter=a%3A1%3Bb%3A2"
-  )
-  expect_identical(
-    rgho:::build_gho_url(dimension = NULL, x=1, y=2),
-    "https://apps.who.int/gho/athena/api/?x=1&y=2"
-  )
-  expect_identical(
-    rgho:::build_gho_url(dimension = "COUNTRY", x=1, y=2),
-    "https://apps.who.int/gho/athena/api/COUNTRY?x=1&y=2"
-  )
-  expect_identical(
-    rgho:::build_gho_url(dimension = "COUNTRY", code = "xxx",
-                         x=1, y=2),
-    "https://apps.who.int/gho/athena/api/COUNTRY/xxx?x=1&y=2"
-  )
-  expect_identical(
-    rgho:::build_gho_url(dimension = "COUNTRY", code = "yyy",
-                         filter = list(a = 1, b = 2),
-                         x=1, y=2),
-    "https://apps.who.int/gho/athena/api/COUNTRY/yyy?filter=a%3A1%3Bb%3A2&x=1&y=2"
-  )
-})
-
-test_that("wrong input fails", {
-  expect_error(
-    rgho:::build_gho_url(dimension = 1:2)
-  )
-  expect_error(
-    rgho:::build_gho_url(dimension = NULL, code = "xxx")
-  )
-  expect_error(
-    rgho:::build_gho_url(code = NULL, filter = list(a = 1))
-  )
-  expect_error(
-    rgho:::build_gho_url(code = "xxx", filter = list(1))
-  )
-  expect_error(
-    rgho:::build_gho_url(code = "xxx", filter = c(a = 1))
-  )
-  expect_error(
-    rgho:::build_gho_url(code = "xxx", filter = list(a = 1:2))
-  )
-  expect_error(
-    rgho:::build_gho_url(code = "xxx", filter = list())
-  )
-  expect_error(
-    rgho:::build_gho_url(
-      base_url = "https://google.com",
-      dimension = "GHO",
-      code = "xxx", filter = list(a = 1),
-      2, 3
+  dims <- get_gho_dimensions()
+  if (length(dims)){
+    expect_identical(
+      attr(dims,"url"),
+      "https://ghoapi.azureedge.net/api/$metadata#DIMENSION"
     )
-  )
-  expect_error(
-    rgho:::build_gho_url(
-      base_url = "https://google.com",
-      dimension = "GHO",
-      code = "xxx", filter = list(a = 1),
-      x = 2, y = 3:4
+  }
+  codes <- get_gho_codes()
+  if (length(codes)){
+    expect_identical(
+      attr(codes,"url"),
+      "https://ghoapi.azureedge.net/api/$metadata#Collection(Default.DIMENSION_VALUE)"
     )
-  )
-  expect_error(
-    rgho:::build_gho_url(
-      base_url = "https://google.com",
-      dimension = "GHO",
-      code = "xxx", filter = list(a = 1),
-      x = 2, y = NULL
-    )
-  )
+  }
 })
 
 test_that("Connection errors", {
-  options(rgho.retry = 1)
-  if (curl::has_internet()){
+    if(curl::has_internet()){
     options(rgho.baseurl = "http://httpbin.org/status/404")
     expect_message(get_gho_dimensions(), "404")
-    memoise::forget(get_gho)
     expect_message(get_gho_codes(dimension = "COUNTRY"), "404")
-    memoise::forget(get_gho)
-    options(rgho.baseurl = "http://httpbin.org/status/500")
-    expect_message(get_gho_dimensions(), "500")
-    memoise::forget(get_gho)
-    expect_message(get_gho_codes(dimension = "COUNTRY"), "500")
   } else {
     expect_message(get_gho_dimensions(), "No internet connection")
   }

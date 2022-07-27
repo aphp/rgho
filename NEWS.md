@@ -1,3 +1,17 @@
+# rgho 3.0.0
+This new version of `rgho` now uses the most recent API of the WHO, 
+which simplifies considerably the package, and relies on the package 
+[ODataQuery.](https://cran.r-project.org/web/packages/ODataQuery/index.html)
+
+## Breaking changes
+ * Objects created with get_gho_* are now of class "gho" and "data.frame"
+ * Former lower-level access to the API do not work anymore
+ * If a connection error occurs, the function returns an empty list with a 
+  message as argument 
+ * The proxy settings and the number of retries are now managed by `ODataQuery` 
+ package.
+ * There is no memoisation anymore
+
 # rgho 2.0.2
   * better handles connection fails
 

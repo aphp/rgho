@@ -22,19 +22,18 @@
 #' @importFrom httr content
 #' @importFrom httr user_agent
 #'
-#' @importFrom memoise memoise
-#' @importFrom memoise timeout
-#'
 #' @importFrom curl ie_get_proxy_for_url
-#'
-#' @importFrom readr read_csv
 #'
 #' @importFrom magrittr "%>%"
 #' @importFrom magrittr "%$%"
 #' @importFrom magrittr "%<>%"
 #' @importFrom magrittr "extract2"
 #'
+#' @importFrom dplyr select filter if_all
+#'
 #' @importFrom tibble as_tibble
+#'
+#' @importFrom ODataQuery ODataQuery
 #'
 #' @importFrom tidyr spread_
 #'
@@ -42,8 +41,6 @@
 #' @importFrom stats setNames
 #'
 #' @importFrom utils head
-#'
-#' @importFrom jsonlite fromJSON
 #'
 #' @importFrom rlang quos "!!!" .data quo
 #'

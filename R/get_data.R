@@ -1,22 +1,16 @@
 #' Returns GHO Data
 #'
-#' Given a dimension and a code, returns the corresponding
-#' GHO data.
+#' Given a code, returns the corresponding GHO data.
 #'
 #' Filtering parameters are given as a named list of the
 #' form \code{list(COUNTRY = "FRA", ...)}.
 #'
-#' Query parameters follow the specification described on
-#' the WHO website
-#' \url{https://apps.who.int/gho/data/node.resources.api}.
 #'
 #' @param code A GHO code.
-#' @param dimension A GHO dimension.
 #' @param filter A named list of filtering parameters (see
 #'   details).
-#' @param ... Additional query parameters (see details).
 #'
-#' @return A \code{data_frame}.
+#' @return A \code{data frame}.
 #'
 #' @export
 #'
@@ -24,14 +18,12 @@
 #'
 #'\dontrun{
 #' result <- get_gho_data(
-#'   dimension = "GHO",
 #'   code = "MDG_0000000001"
 #' )
 #' print(result, width = Inf)
 #'
 #'
 #' result <- get_gho_data(
-#'   dimension = "GHO",
 #'   code = "MDG_0000000001",
 #'   filter = list(
 #'     REGION = "EUR",
@@ -40,28 +32,29 @@
 #' )
 #' print(result, width = Inf)
 #'}
-get_gho_data <- function(code, dimension = "GHO", filter = NULL, ...) {
-  dimensions <- get_gho_dimensions()
-  return_if_message(dimensions)
+get_gho_data <- function(code, filter = NULL) {
+  codes <- get_gho_codes()
+  return_if_message(codes)
   stopifnot(
-    dimension %in% get_gho_dimensions(),
-    code %in% get_gho_codes(dimension = dimension)
+    code %in% codes$Code
   )
 
-  request_content <- get_gho(
-    url = build_gho_url(
-      dimension = dimension,
-      code = code,
-      format = "csv",
-      filter = filter,
-      ...
-    )
-  ) %>%
-    httr::content(type = "text", encoding = "UTF-8")
-
-  if (request_content != "") {
-    readr::read_csv(request_content)
+  resp <- get_gho()$path(code)
+  table <- if (!is.null(filter)){
+    build_gho(resp$filter(list_to_filter(filter)))
   } else {
-    stop("No data returned by WHO GHO server.")
+    build_gho(resp)
   }
+  remove_na <- table %>%
+    apply(MARGIN = 2, FUN = function(x) !all(is.na(x), na.rm = TRUE))
+
+  url <- attr(table, "url")
+  table <- table[remove_na]
+  for (x in names(table)){
+    if (grepl("Dim", x) & grepl("Type", x)){
+      table <- tidyr::pivot_wider(table,  names_from = x, values_from = gsub("Type", "", x))
+    }
+  }
+  structure(table, class = c("gho", class(table)),
+            url = url)
 }

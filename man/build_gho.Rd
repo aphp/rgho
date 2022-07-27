@@ -4,14 +4,10 @@
 \alias{build_gho}
 \title{Check and Build a gho Object}
 \usage{
-build_gho(x, labels, attrs = NULL)
+build_gho(x)
 }
 \arguments{
-\item{x}{A vector of codes.}
-
-\item{labels}{A vector of labels.}
-
-\item{attrs}{A \code{data_frame} of attributes.}
+\item{x}{A ODataQuery object}
 }
 \value{
 A \code{gho} object.

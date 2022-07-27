@@ -38,8 +38,6 @@ get_gho_codes(dimension = "COUNTRY")
 get_gho_codes(dimension = "GHO")
 ```
 
-The number of printed items can be changed by the option `rgho.n`.
-
 ## Search
 
 The function `search_dimensions()` and `search_codes()` research a term in dimension or codes labels, respectively.
@@ -55,42 +53,16 @@ It is also possible to search results from an existing object.
 result <- get_gho_codes(dimension = "REGION")
 search_gho(result, "asia")
 ```
-
-## Filtering results
-
-Dimension codes can be filtered according to their attributes.
-
-```{r}
-results <- get_gho_codes(dimension = "COUNTRY")
-filter_gho(
-  results,
-  WHO_REGION_CODE == "EUR"
-)
-```
-
-Attribute names and values can be displayed.
-
-```{r}
-display_attributes(
-  results
-)
-display_attribute_values(
-  results,
-  "WHO_REGION_CODE"
-)
-```
-
 ## Data download
 
 An indicator can be downloaded as a `data_frame` with `get_gho_data()`. Here we use `MDG_0000000001`, *Infant mortality rate (probability of dying between birth and age 1 per 1000 live births)*:
 
 ```{r}
 result <- get_gho_data(
-  dimension = "GHO",
   code = "MDG_0000000001"
 )
 
-print(result, width = Inf)
+print(result)
 ```
 
 ## Filter requests
@@ -99,19 +71,16 @@ The `filter` argument in `get_gho_data()` allows request filtering:
 
 ```{r}
 result <- get_gho_data(
-  dimension = "GHO",
   code = "MDG_0000000001",
   filter = list(
     REGION = "EUR",
-    YEAR = "2015"
+    YEAR = 2015
   )
 )
 
-print(result, width = Inf)
+print(result)
 ```
 
 ## Other parameters
 
-Other parameters than `format` can be specified to `get_gho_data()` (such as `apikey`, `asof`...). Parameters are listed on [this page](https://apps.who.int/gho/data/node.resources.api). Note that most parameters are not available to general users.
-
-For details about how the requests are performed and the option availables (especially proxy settings) see `vignette("e-details", "rgho")`.
+For details about how the requests are performed and the options available (especially proxy settings) see `vignette("e-details", "rgho")`.

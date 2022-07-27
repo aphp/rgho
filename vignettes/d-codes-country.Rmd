@@ -19,8 +19,6 @@ library(knitr)
 
 ```{r, echo=FALSE}
 kable(
-    rgho:::to_data_frame(
       get_gho_codes(dimension = "COUNTRY")
-      ),
   )
 ```

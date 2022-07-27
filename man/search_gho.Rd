@@ -22,7 +22,7 @@ search_codes(x, dimension = "GHO")
 }
 \value{
 A vector of dimensions or codes whose labels mach the search string.
- Labels are given as as a \code{label} attribute.
+Labels are given as as a \code{label} attribute.
 }
 \description{
 Search Codes or Dimensions Labels

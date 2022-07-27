@@ -18,24 +18,8 @@
 #' search_gho(result, "asia")
 #'
 search_gho <- function(gho, x) {
-  return_if_message(gho, TRUE)
-  pos <- grep(
-    tolower(x),
-    tolower(attr(gho, "labels")),
-    useBytes = TRUE,
-    fixed = TRUE
-  )
-
-  if (! is.null(attr(gho, "attrs"))) {
-    attrs <- attr(gho, "attrs")[pos, ]
-  } else {
-    attrs <- NULL
-  }
-  build_gho(
-    gho[pos],
-    labels = attr(gho, "labels")[pos],
-    attrs = attrs
-  )
+  return_if_message(gho)
+  dplyr::filter(gho, grepl(tolower(x), tolower(.data$Title)))
 }
 
 #' @rdname search_gho

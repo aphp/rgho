@@ -13,74 +13,7 @@
 #'
 #' @return The result from \code{\link[httr]{GET}}.
 #' @keywords internal
-get_gho_ <- function(url, verbose = options()$rgho.verbose,
+get_gho <- function(url = getOption("rgho.baseurl") , verbose = options()$rgho.verbose,
                      retry = options()$rgho.retry) {
-  proxy <- get_proxy()
-  if (missing(url)) stop("url argument missing")
-  if (verbose) {
-    message(sprintf("URL: %s", url))
-
-    if (is.null(proxy)) {
-      message("Trying request without proxy settings.")
-    } else {
-      message("Trying request with proxy settings.")
-    }
-  }
-
-
-  n <- 0
-  while(n <= retry){
-    if (verbose) message(sprintf("Try #%i.", n))
-
-    res <- gracefully_fail(url, config = c(
-      proxy, # NULL is no proxy
-      httr::user_agent("https://pierucci.org/rgho/")
-    ))
-
-    # dont retry if proxy error
-    if (length(res)){
-      if (res$status_code == 407L | res$status_code == 200L) break
-    }
-
-    if (verbose & length(res)) message(sprintf("Request failed:\n%s"))
-    wait(n, verbose)
-    n <- n + 1
-  }
-  if (length(res) && res$status_code == 200L){
-    if (verbose) message("Success.")
-    res
-  } else {
-    message(attr(res, "message"))
-    invisible(res)
-  }
-}
-
-get_gho <- memoise::memoise(
-  get_gho_,
-  ~ memoise::timeout(options()$rgho.memotime)
-)
-
-is_error <- function(x) {
-  inherits(x, "try-error") || httr::http_error(x)
-}
-
-format_error <- function(x) {
-  if (inherits(x, "try-error")) {
-    x
-
-  } else if (httr::http_error(x)) {
-    httr::http_status(x)$message
-
-  } else {
-    "Unknown error during HTTP request."
-  }
-}
-
-wait <- function(n, verbose = FALSE) {
-  waiting_time <- stats::runif(1, 0, 2^n)
-  if (verbose) message(sprintf(
-    "Waiting %.1fs.",
-    waiting_time
-  ))
-  Sys.sleep(waiting_time)
+  ODataQuery$new(url)
 }

@@ -1,27 +1,22 @@
-#' Filter a GHO Object on Attribute Values
-#'
-#' @param x \code{gho} object to
-#'   filter.
-#' @param  ... Logical predicates. Multiple conditions are
-#'   combined with &.
-#'
-#' @return A \code{gho} object.
-#' @export
-filter_gho <- function(x, ...) {
-  return_if_message(x)
-  if (is.null(gho_attr <- attr(x, "attrs"))) {
-    stop("Attempt to filter a GHO object with no attribute.")
-  }
+list_to_filter <- function(x){
+  res <- lapply(seq_along(x), function(i){
+    if(names(x[i]) %in% c("REGION", "COUNTRY")){
+      return(list(SpatialDimType = names(x[i]),
+                  SpatialDim = x[[i]]))
+    }
+    if (names(x[i]) %in% c("YEAR", "MONTH")){
+      return(list(TimeDimType = names(x[i]),
+                  TimeDim = x[[i]]))
+    }
+    if (names(x[i]) %in% c("SEX")){
+      return(list(Dim1Type = names(x[i]),
+                  Dim1 = x[[i]]))
+    } else {
+      x[i]
+    }
+  })
+  res <- unlist(res, recursive = FALSE)
 
-  .dots <- quos(...)
-  filtered_attrs <- gho_attr %>%
-    dplyr::filter(!!!.dots)
-
-  codes <- unique(filtered_attrs$code)
-
-  build_gho(
-    x[x %in% codes],
-    labels = attr(x, "labels")[x %in% codes],
-    attrs = filtered_attrs
-  )
+  names(res) <- paste0(names(res), ".eq")
+  do.call(ODataQuery::and_query, res)
 }
