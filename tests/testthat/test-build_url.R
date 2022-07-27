@@ -98,3 +98,20 @@ test_that("wrong input fails", {
     )
   )
 })
+
+test_that("Connection errors", {
+  options(rgho.retry = 1)
+  if (curl::has_internet()){
+    options(rgho.baseurl = "http://httpbin.org/status/404")
+    expect_message(get_gho_dimensions(), "404")
+    memoise::forget(get_gho)
+    expect_message(get_gho_codes(dimension = "COUNTRY"), "404")
+    memoise::forget(get_gho)
+    options(rgho.baseurl = "http://httpbin.org/status/500")
+    expect_message(get_gho_dimensions(), "500")
+    memoise::forget(get_gho)
+    expect_message(get_gho_codes(dimension = "COUNTRY"), "500")
+  } else {
+    expect_message(get_gho_dimensions(), "No internet connection")
+  }
+})

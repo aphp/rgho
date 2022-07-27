@@ -1,8 +1,10 @@
 Package: rgho
 Title: Access WHO Global Health Observatory Data from R
-Version: 2.0.2
-Author: Antoine Filipovic-Pierucci [aut,cre]
-Maintainer: Kevin Zarca <kevin.zarca@gmail.com>
+Version: 2.1.0
+Author@R: c(
+    person("Kevin", "Zarca", email = "kevin.zarca@gmail.com", role = c("aut", "cre")),
+    person("Antoine", "Filipovic-Pierucci", role = "aut")
+    )
 Description: Access WHO Global Health Observatory
     (<https://www.who.int/data/gho/>)
     data from R via the Athena web service
@@ -17,7 +19,6 @@ Imports: curl,
          dplyr,
          httr,
          jsonlite,
-         lazyeval,
          magrittr,
          memoise,
          readr,

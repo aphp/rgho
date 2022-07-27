@@ -38,8 +38,6 @@
 #'
 #' @importFrom tidyr spread_
 #'
-#' @importFrom lazyeval lazy_dots
-#'
 #' @importFrom stats runif
 #' @importFrom stats setNames
 #'
@@ -47,6 +45,6 @@
 #'
 #' @importFrom jsonlite fromJSON
 #'
-#' @importFrom rlang quos "!!!" .data
+#' @importFrom rlang quos "!!!" .data quo
 #'
 NULL

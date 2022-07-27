@@ -57,8 +57,9 @@ gracefully_fail <- function(remote_file, config) {
 
 return_if_message <- function(x, display = FALSE) {
   if(!length(x) & !is.null(attr(x, "message"))) {
+    if (attr(x, "message") == "No internet connection") memoise::forget(get_gho)
     if(display) message(attr(x, 'message'))
-    x_ <- rlang::quo(invisible(structure(list(),
+    x_ <- quo(invisible(structure(list(),
                                          message = attr(x, "message"),
                                          class = "gho")))
     call <- rlang::expr(return(rlang::eval_tidy(!!x_)))

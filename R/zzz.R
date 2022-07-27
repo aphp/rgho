@@ -5,7 +5,8 @@
     rgho.retry = 5,
     rgho.memotime = 3600,
     rgho.http_proxy = NULL,
-    rgho.n = 6
+    rgho.n = 6,
+    rgho.baseurl = "https://apps.who.int/gho/athena/api/"
   )
   toset <- !(names(op.rgho) %in% names(op))
   if(any(toset)) options(op.rgho[toset])

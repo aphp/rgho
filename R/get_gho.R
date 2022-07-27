@@ -16,7 +16,7 @@
 get_gho_ <- function(url, verbose = options()$rgho.verbose,
                      retry = options()$rgho.retry) {
   proxy <- get_proxy()
-
+  if (missing(url)) stop("url argument missing")
   if (verbose) {
     message(sprintf("URL: %s", url))
 
@@ -55,7 +55,6 @@ get_gho_ <- function(url, verbose = options()$rgho.verbose,
   }
 }
 
-#' @rdname get_gho_
 get_gho <- memoise::memoise(
   get_gho_,
   ~ memoise::timeout(options()$rgho.memotime)
