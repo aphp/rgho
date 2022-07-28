@@ -15,7 +15,7 @@ library(rgho)
 library(dplyr)
 ```
 
-`rgho` is an `R` package to access [WHO GHO data](https://www.who.int/data/gho/) from R via the Athena web service, an API providing a simple query interface to the World Health Organization's data and statistics content.
+`rgho` is an `R` package to access [WHO GHO data](https://www.who.int/data/gho/) from R via the GHO OData API, providing a simple query interface to the World Health Organization's data and statistics content.
 
 ## The Global Health Observatory
 
