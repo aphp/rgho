@@ -6,14 +6,14 @@ test_that("api base url is correct and objects are of correct size", {
     "https://ghoapi.azureedge.net/api/"
   )
   dims <- get_gho_dimensions()
-  if (length(dims)){
+  if (length(dims) && length(dims$url)){
     expect_identical(
       attr(dims,"url"),
       "https://ghoapi.azureedge.net/api/$metadata#DIMENSION"
     )
   }
   value <- get_gho_values()
-  if (length(value)){
+  if (length(value) && length(value$url)){
     expect_identical(
       attr(value,"url"),
       "https://ghoapi.azureedge.net/api/$metadata#Collection(Default.DIMENSION_VALUE)"
@@ -21,7 +21,7 @@ test_that("api base url is correct and objects are of correct size", {
     expect_gt(nrow(value), 2000)
   }
   value <- get_gho_values("AGEGROUP")
-  if (length(value)){
+  if (length(value) && length(value$url)){
     expect_identical(
       attr(value,"url"),
       "https://ghoapi.azureedge.net/api/$metadata#Collection(Default.DIMENSION_VALUE)"

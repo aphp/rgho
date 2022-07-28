@@ -7,7 +7,7 @@ Authors@R: c(
     )
 Description: Access WHO Global Health Observatory
     (<https://www.who.int/data/gho/>)
-    data from R via the OData API
+    data from R via the `OData` API
     (<https://www.who.int/data/gho/info/gho-odata-api>),
     an application program interface providing
     a simple query interface to the World
