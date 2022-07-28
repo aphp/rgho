@@ -1,6 +1,6 @@
-context("build_url")
+context("objects")
 
-test_that("api base url is correct", {
+test_that("api base url is correct and objects are of correct size", {
   expect_identical(
     rgho:::get_gho()$url,
     "https://ghoapi.azureedge.net/api/"
@@ -18,6 +18,15 @@ test_that("api base url is correct", {
       attr(codes,"url"),
       "https://ghoapi.azureedge.net/api/$metadata#Collection(Default.DIMENSION_VALUE)"
     )
+    expect_gt(nrow(codes), 2000)
+  }
+  codes <- get_gho_codes("AGEGROUP")
+  if (length(codes)){
+    expect_identical(
+      attr(codes,"url"),
+      "https://ghoapi.azureedge.net/api/$metadata#Collection(Default.DIMENSION_VALUE)"
+    )
+    expect_gt(nrow(codes), 50)
   }
 })
 
@@ -28,5 +37,6 @@ test_that("Connection errors", {
     expect_message(get_gho_codes(dimension = "COUNTRY"), "404")
   } else {
     expect_message(get_gho_dimensions(), "No internet connection")
+    expect_message(get_gho_codes(), "No internet connection")
   }
 })

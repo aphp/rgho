@@ -7,10 +7,13 @@
 #'
 #'
 #' @param code A GHO code.
-#' @param filter A named list of filtering parameters (see
-#'   details).
+#' @param filter A named list of filtering parameters. Each parameter must be the
+#' correct type.
 #'
-#' @return A \code{data frame}.
+#' @return A \code{GHO} object
+#'
+#' @details If you mispecify the filtering parameter, you will get a 400 Bad
+#' Request Error
 #'
 #' @export
 #'
@@ -27,7 +30,7 @@
 #'   code = "MDG_0000000001",
 #'   filter = list(
 #'     REGION = "EUR",
-#'     YEAR = "2015"
+#'     YEAR = 2015
 #'   )
 #' )
 #' print(result, width = Inf)

@@ -9,11 +9,11 @@ get_gho_data(code, filter = NULL)
 \arguments{
 \item{code}{A GHO code.}
 
-\item{filter}{A named list of filtering parameters (see
-details).}
+\item{filter}{A named list of filtering parameters. Each parameter must be the
+correct type.}
 }
 \value{
-A \code{data frame}.
+A \code{GHO} object
 }
 \description{
 Given a code, returns the corresponding GHO data.
@@ -21,6 +21,9 @@ Given a code, returns the corresponding GHO data.
 \details{
 Filtering parameters are given as a named list of the
 form \code{list(COUNTRY = "FRA", ...)}.
+
+If you mispecify the filtering parameter, you will get a 400 Bad
+Request Error
 }
 \examples{
 
@@ -35,7 +38,7 @@ result <- get_gho_data(
   code = "MDG_0000000001",
   filter = list(
     REGION = "EUR",
-    YEAR = "2015"
+    YEAR = 2015
   )
 )
 print(result, width = Inf)

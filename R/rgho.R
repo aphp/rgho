@@ -7,7 +7,8 @@
 #'
 #' @docType package
 #' @name rgho
-#' @section Package Options:
+#'
+#' @importFrom utils head
 #'
 #' @importFrom magrittr "%>%"
 #'

@@ -10,7 +10,3 @@ OData API, an application program interface
 providing a simple query interface to the World Health
 Organization's data and statistics content.
 }
-\section{Package Options}{
-
-}
-
