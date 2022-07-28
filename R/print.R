@@ -13,10 +13,4 @@ print.gho <- function(x, n = options()$rgho.n, ...) {
     cat(sprintf("...\n\n(Printing %i first elements.)\n", n))
   }
 
-  # if (! is.null(attr(x, "attrs"))) {
-  #   names_attr <- names(attr(x, "attrs"))
-  #   names_attr <- names_attr[names_attr != "code"]
-  #   cat("\nAttributes:\n\n")
-  #   cat(names_attr, sep = "\n")
-  # }
 }

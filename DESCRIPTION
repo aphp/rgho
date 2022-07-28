@@ -14,15 +14,16 @@ Description: Access WHO Global Health Observatory
     Health Organization's data and statistics content.
 License: GPL (>= 3)
 LazyData: TRUE
-Depends: R (>= 4.0.0)
-Imports: curl (>= 4.3.2),
-         dplyr (>= 1.0.9),
-         httr (>= 1.4.3),
-         magrittr (>= 2.0.3),
-         tibble (>= 3.1.8),
+Depends: R (>= 3.6.0)
+Imports: curl (>= 4.3.0),
+         dplyr (>= 1.0.0),
+         httr (>= 1.4.0),
+         magrittr (>= 2.0.0),
+         tibble (>= 3.0.0),
          tidyr (>= 1.2.0),
-         rlang (>= 1.0.4),
-         ODataQuery (>= 0.5.3)
+         rlang (>= 1.0.0),
+         ODataQuery (>= 0.5.3),
+         lifecycle (>= 1.0.0)
 Suggests: testthat,
           knitr,
           rmarkdown

@@ -4,29 +4,16 @@
 \alias{get_gho}
 \title{GET a GHO URL}
 \usage{
-get_gho(
-  url = getOption("rgho.baseurl"),
-  verbose = options()$rgho.verbose,
-  retry = options()$rgho.retry
-)
+get_gho(url = getOption("rgho.baseurl"))
 }
 \arguments{
 \item{url}{the url to retrieve, given as a character
 string.}
-
-\item{verbose}{Verbose mode?}
-
-\item{retry}{Maximum number of \code{GET} re-trials.}
 }
 \value{
-The result from \code{\link[httr]{GET}}.
+A \code{ODataQuery} object.
 }
 \description{
-Given a url, tries to find local proxy settings and GET
-the content of the GHO page.
-}
-\details{
-The function re-tries failed attempts using exponential
-backoff with jitter.
+GET a GHO URL
 }
 \keyword{internal}

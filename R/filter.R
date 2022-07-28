@@ -1,6 +1,7 @@
 list_to_filter <- function(x){
+  x <- Filter(function(y) !is.null(y), x)
   res <- lapply(seq_along(x), function(i){
-    if(names(x[i]) %in% c("REGION", "COUNTRY")){
+    if(names(x[i]) %in% c("REGION", "COUNTRY", "WORLDBANKINCOMEGROUP")){
       return(list(SpatialDimType = names(x[i]),
                   SpatialDim = x[[i]]))
     }

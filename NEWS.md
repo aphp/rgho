@@ -11,6 +11,8 @@ which simplifies considerably the package, and relies on the package
  * The proxy settings and the number of retries are now managed by `ODataQuery` 
  package.
  * There is no memoisation anymore
+ * `get_gho_codes()` is superseded by `get_gho_values()` to better reflect the 
+ new API terminology
 
 # rgho 2.0.2
   * better handles connection fails

@@ -18,15 +18,15 @@ devtools::install_github("aphp/rgho")
 
 ## Main features
 
-  * List available dimensions and codes with `get_gho_dimensions()` and `get_gho_codes()`.
+  * List available dimensions and values with `get_gho_dimensions()` and `get_gho_values()`.
   * Download data with `get_gho_data()`.
   
 ## Documentation
 
   * Introduction in `vignette("a-intro", "rgho")`.
   * List of GHO dimensions in `vignette("b-dimensions", "rgho")`.
-  * List of codes for the `GHO` dimension in `vignette("c-codes-gho", "rgho")`.
-  * List of codes for the `COUNTRY` dimension in `vignette("d-country", "rgho")`.
+  * List of values for the `GHO` dimension in `vignette("c-values-gho", "rgho")`.
+  * List of values for the `COUNTRY` dimension in `vignette("d-country", "rgho")`.
   * Details about how requests are performed in `vignette("e-details", "rgho")`.
 
 ## Dev

@@ -12,21 +12,21 @@ test_that("api base url is correct and objects are of correct size", {
       "https://ghoapi.azureedge.net/api/$metadata#DIMENSION"
     )
   }
-  codes <- get_gho_codes()
-  if (length(codes)){
+  value <- get_gho_values()
+  if (length(value)){
     expect_identical(
-      attr(codes,"url"),
+      attr(value,"url"),
       "https://ghoapi.azureedge.net/api/$metadata#Collection(Default.DIMENSION_VALUE)"
     )
-    expect_gt(nrow(codes), 2000)
+    expect_gt(nrow(value), 2000)
   }
-  codes <- get_gho_codes("AGEGROUP")
-  if (length(codes)){
+  value <- get_gho_values("AGEGROUP")
+  if (length(value)){
     expect_identical(
-      attr(codes,"url"),
+      attr(value,"url"),
       "https://ghoapi.azureedge.net/api/$metadata#Collection(Default.DIMENSION_VALUE)"
     )
-    expect_gt(nrow(codes), 50)
+    expect_gt(nrow(value), 50)
   }
 })
 
@@ -34,9 +34,9 @@ test_that("Connection errors", {
     if(curl::has_internet()){
     options(rgho.baseurl = "http://httpbin.org/status/404")
     expect_message(get_gho_dimensions(), "404")
-    expect_message(get_gho_codes(dimension = "COUNTRY"), "404")
+    expect_message(get_gho_values(dimension = "COUNTRY"), "404")
   } else {
     expect_message(get_gho_dimensions(), "No internet connection")
-    expect_message(get_gho_codes(), "No internet connection")
+    expect_message(get_gho_values(), "No internet connection")
   }
 })

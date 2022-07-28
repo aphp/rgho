@@ -3,35 +3,34 @@
 \name{search_gho}
 \alias{search_gho}
 \alias{search_dimensions}
-\alias{search_codes}
+\alias{search_values}
 \title{Search Codes or Dimensions Labels}
 \usage{
 search_gho(gho, x)
 
 search_dimensions(x)
 
-search_codes(x, dimension = "GHO")
+search_values(x, dimension = "GHO")
 }
 \arguments{
 \item{gho}{An object from \code{\link{get_gho_dimensions}} or
-\code{\link{get_gho_codes}}.}
+\code{\link{get_gho_values}}.}
 
 \item{x}{A character string to find in GHO labels.}
 
 \item{dimension}{A GHO dimension where codes will be searched.}
 }
 \value{
-A vector of dimensions or codes whose labels mach the search string.
-Labels are given as as a \code{label} attribute.
+A \code{GHO} object
 }
 \description{
 Search Codes or Dimensions Labels
 }
 \examples{
 
-search_codes("neonatal", dimension = "GHO")
+search_values("neonatal", dimension = "GHO")
 
-result <- get_gho_codes(dimension = "REGION")
+result <- get_gho_values(dimension = "REGION")
 search_gho(result, "asia")
 
 }

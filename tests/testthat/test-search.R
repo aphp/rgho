@@ -2,17 +2,17 @@ context("search")
 
 baseurl <- getOption("rgho.baseurl")
 
-if(curl::has_internet()){
-  test_that("search_codes is working", {
+skip_if_offline()
+  test_that("search_values is working", {
     if(curl::has_internet()){
-      result <- search_codes("Adult", dimension = "GHO")
+      result <- search_values("Adult", dimension = "GHO")
       expect_s3_class(result, "gho")
       if (length(result)){
         expect_true("Adult_curr_cig_smoking" %in% result$Code)
         expect_gt(nrow(result), 60)
       }
       options(rgho.baseurl = "http://httpbin.org/status/404")
-      expect_message(search_codes("Adult", dimension = "GHO"), "404")
+      expect_message(search_values("Adult", dimension = "GHO"), "404")
     }
     options(rgho.baseurl = baseurl)
 
@@ -31,8 +31,8 @@ if(curl::has_internet()){
 
   test_that("search_gho is working", {
 
-      codes <- get_gho_codes(dimension = "COUNTRY")
-      result <- search_gho(codes, "fra")
+    value <- get_gho_values(dimension = "COUNTRY")
+      result <- search_gho(value, "fra")
       expect_s3_class(result, "gho")
       if (length(result)){
         expect_true("FRA" %in% result$Code)
@@ -40,4 +40,3 @@ if(curl::has_internet()){
       }
     options(rgho.baseurl = baseurl)
   })
-}

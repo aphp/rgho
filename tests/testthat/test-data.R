@@ -2,7 +2,7 @@ context("Get GHO Data")
 
 baseurl <- getOption("rgho.baseurl")
 
-if (curl::has_internet()){
+skip_if_offline()
   test_that("404 error when url not found", {
       options(rgho.baseurl = "http://httpbin.org/status/404")
       get_gho_data(
@@ -68,4 +68,3 @@ if (curl::has_internet()){
     ) %>%
     expect_message("400")
   })
-}

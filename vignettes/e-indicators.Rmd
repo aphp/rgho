@@ -1,11 +1,11 @@
 ---
-title: "Codes for the COUNTRY Dimension"
+title: "GHO indicators"
 date: "`r Sys.Date()`"
 output:
   rmarkdown::html_vignette:
     toc: true
 vignette: >
-  %\VignetteIndexEntry{Codes for the COUNTRY Dimension}
+  %\VignetteIndexEntry{GHO indicators}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
@@ -19,6 +19,6 @@ library(knitr)
 
 ```{r, echo=FALSE}
 kable(
-      get_gho_values(dimension = "COUNTRY")
+      get_gho_indicators()
   )
 ```

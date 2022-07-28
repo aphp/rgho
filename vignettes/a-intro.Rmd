@@ -23,7 +23,7 @@ As stated by the WHO website: *The GHO data repository contains an extensive lis
 
 ## Data structure
 
-GHO data is composed of indicators structured in dimensions. The list of dimensions is available in `vignette("b-dimensions", "rgho")`, the list of indicators for the *GHO* dimension (the main dimension) in `vignette("c-codes-gho", "rgho")`).
+GHO data is composed of indicators structured in dimensions. The list of dimensions is available in `vignette("b-dimensions", "rgho")`, the list of indicators for the *GHO* dimension (the main dimension) in `vignette("c-values-gho", "rgho")`).
 
 It is possible to access dimensions with `get_gho_dimensions()`:
 
@@ -31,26 +31,26 @@ It is possible to access dimensions with `get_gho_dimensions()`:
 get_gho_dimensions()
 ```
 
-And codes for a given dimension with `get_gho_codes()`:
+And codes for a given dimension with `get_gho_values()`:
 
 ```{r}
-get_gho_codes(dimension = "COUNTRY")
-get_gho_codes(dimension = "GHO")
+get_gho_values(dimension = "COUNTRY")
+get_gho_values(dimension = "GHO")
 ```
 
 ## Search
 
-The function `search_dimensions()` and `search_codes()` research a term in dimension or codes labels, respectively.
+The function `search_dimensions()` and `search_values()` research a term in dimension or codes labels, respectively.
 
 ```{r}
 search_dimensions("region")
-search_codes("neonatal", dimension = "GHO")
+search_values("neonatal", dimension = "GHO")
 ```
 
 It is also possible to search results from an existing object.
 
 ```{r}
-result <- get_gho_codes(dimension = "REGION")
+result <- get_gho_values(dimension = "REGION")
 search_gho(result, "asia")
 ```
 ## Data download

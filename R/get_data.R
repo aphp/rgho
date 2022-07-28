@@ -36,10 +36,10 @@
 #' print(result, width = Inf)
 #'}
 get_gho_data <- function(code, filter = NULL) {
-  codes <- get_gho_codes()
-  return_if_message(codes)
+  value <- get_gho_values()
+  return_if_message(value)
   stopifnot(
-    code %in% codes$Code
+    code %in% value$Code
   )
 
   resp <- get_gho()$path(code)
