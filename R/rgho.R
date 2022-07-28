@@ -16,31 +16,14 @@
 #'   \code{rgho.memotime} For how long should the results of
 #'   a request be memoised, in seconds? Defaults to 3600. }
 #'
-#' @importFrom httr parse_url
-#' @importFrom httr build_url
-#' @importFrom httr use_proxy
-#' @importFrom httr content
-#' @importFrom httr user_agent
-#'
-#' @importFrom curl ie_get_proxy_for_url
 #'
 #' @importFrom magrittr "%>%"
-#' @importFrom magrittr "%$%"
-#' @importFrom magrittr "%<>%"
-#' @importFrom magrittr "extract2"
 #'
-#' @importFrom dplyr select filter if_all
+#' @importFrom dplyr select filter
 #'
 #' @importFrom tibble as_tibble
 #'
 #' @importFrom ODataQuery ODataQuery
-#'
-#' @importFrom tidyr spread_
-#'
-#' @importFrom stats runif
-#' @importFrom stats setNames
-#'
-#' @importFrom utils head
 #'
 #' @importFrom rlang quos "!!!" .data quo
 #'
