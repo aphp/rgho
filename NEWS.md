@@ -1,7 +1,7 @@
 # rgho 3.0.0
 This new version of `rgho` now uses the most recent API of the WHO, 
 which simplifies considerably the package, and relies on the package 
-[ODataQuery.](https://cran.r-project.org/web/packages/ODataQuery/index.html)
+[ODataQuery.](https://CRAN.R-project.org/package=ODataQuery)
 
 ## Breaking changes
  * Objects created with get_gho_* are now of class "gho" and "data.frame"
