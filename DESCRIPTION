@@ -12,7 +12,7 @@ Description: Access WHO Global Health Observatory
     an application program interface providing
     a simple query interface to the World
     Health Organization's data and statistics content.
-License: GPL (>= 3) + file LICENSE
+License: GPL (>= 3)
 LazyData: TRUE
 Depends: R (>= 3.6.0)
 Imports: curl (>= 4.3.0),

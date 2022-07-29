@@ -1,3 +1,7 @@
+  <!-- badges: start -->
+  [![R-CMD-check](https://github.com/aphp/rgho/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/aphp/rgho/actions/workflows/R-CMD-check.yaml)
+  <!-- badges: end -->
+  
 # rgho - Access WHO Global Health Observatory Data From R
 
 `rgho` is an `R` package to access [WHO GHO data](https://www.who.int/data/gho/) from `R` via the OData API an API providing a simple query interface to the World Health Organization's data and statistics content.
