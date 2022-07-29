@@ -35,10 +35,10 @@ devtools::install_github("aphp/rgho")
 
 ## Dev
 
-Kevin Zarca & Antoine Filipović-Pierucci
+Kevin Zarca
 
 <h1 align="center">
 <a href="https://recherche-innovation.aphp.fr/urc-eco/">
-	<img width="220" src="./inst/media/logo.png" title="Special thanks to Dave Null, our contact who processed all the emails we sent to WHO.">
+	<img width="220" src="./inst/media/logo.png">
 </a>
 </h1>
