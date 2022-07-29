@@ -3,7 +3,8 @@ Title: Access WHO Global Health Observatory Data from R
 Version: 3.0.0
 Authors@R: c(
     person("Kevin", "Zarca", email = "kevin.zarca@gmail.com", role = c("aut", "cre")),
-    person("Antoine", "Filipovic-Pierucci", role = "aut")
+    person("Antoine", "Filipovic-Pierucci", role = "aut"),
+    person("Assistance Publique - Hôpitaux de Paris", role = "cph")
     )
 Description: Access WHO Global Health Observatory
     (<https://www.who.int/data/gho/>)
