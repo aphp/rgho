@@ -4,24 +4,27 @@ baseurl <- getOption("rgho.baseurl")
 
 skip_if_offline()
   test_that("404 error when url not found", {
-      options(rgho.baseurl = "http://httpbin.org/status/404")
+      options(rgho.baseurl = "https://httpbin.org/status/404")
       get_gho_data(
         code = "MDG_0000000001",
         filter = list(
           YEAR = 2015
         )
       ) %>%
-      expect_message("404")
+      expect_message("[45]04")
   })
 
   test_that("get_gho data works without filter", {
     options(rgho.baseurl = baseurl)
     result <- get_gho_data(
-      code = "NTD_ONCHSTATUS"
+      code = "CHILDMORT5TO14",
+      filter = list(
+        YEAR = 2021
+      )
     )
     expect_s3_class(result, "gho")
     if (length(result)){
-      expect_true("27601256" %in% result$Id)
+      expect_true(head(result$NumericValue,1) > 15 & head(result$NumericValue,1) < 16)
       expect_gt(nrow(result), 30)
     }
 
@@ -36,7 +39,7 @@ skip_if_offline()
     )
     expect_s3_class(result, "gho")
     if (length(result)){
-      expect_true("27870102" %in% result$Id)
+      expect_true(head(result$NumericValue,1) > 40 & head(result$NumericValue,1) < 42)
       expect_gt(nrow(result), 200)
     }
 
@@ -68,3 +71,4 @@ skip_if_offline()
     ) %>%
     expect_message("400")
   })
+

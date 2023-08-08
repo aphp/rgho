@@ -32,9 +32,9 @@ test_that("api base url is correct and objects are of correct size", {
 
 test_that("Connection errors", {
     if(curl::has_internet()){
-    options(rgho.baseurl = "http://httpbin.org/status/404")
-    expect_message(get_gho_dimensions(), "404")
-    expect_message(get_gho_values(dimension = "COUNTRY"), "404")
+    options(rgho.baseurl = "https://httpbin.org/status/404")
+    expect_message(get_gho_dimensions(), "[45]04")
+    expect_message(get_gho_values(dimension = "COUNTRY"), "[45]04")
   } else {
     expect_message(get_gho_dimensions(), "No internet connection")
     expect_message(get_gho_values(), "No internet connection")

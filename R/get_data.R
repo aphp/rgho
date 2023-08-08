@@ -55,7 +55,8 @@ get_gho_data <- function(code, filter = NULL) {
   table <- table[remove_na]
   for (x in names(table)){
     if (grepl("Dim", x) & grepl("Type", x)){
-      table <- tidyr::pivot_wider(table,  names_from = x, values_from = gsub("Type", "", x))
+      table <- tidyr::pivot_wider(table,  names_from = dplyr::all_of(x),
+                                  values_from = dplyr::all_of(gsub("Type", "", x)))
     }
   }
   structure(table, class = c("gho", class(table)),
