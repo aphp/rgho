@@ -12,7 +12,7 @@ skip_if_offline()
         expect_gt(nrow(result), 60)
       }
       options(rgho.baseurl = "http://httpbin.org/status/404")
-      expect_message(search_values("Adult", dimension = "GHO"), "404")
+      expect_message(search_values("Adult", dimension = "GHO"), "[45]04")
     }
     options(rgho.baseurl = baseurl)
 
@@ -25,7 +25,7 @@ skip_if_offline()
         expect_gt(nrow(result), 2)
       }
       options(rgho.baseurl = "http://httpbin.org/status/404")
-      expect_message(search_dimensions("age"), "404")
+      expect_message(search_dimensions("age"), "[45]04")
     options(rgho.baseurl = baseurl)
   })
 
