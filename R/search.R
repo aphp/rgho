@@ -18,7 +18,9 @@
 #'
 search_gho <- function(gho, x) {
   return_if_message(gho)
-  dplyr::filter(gho, grepl(tolower(x), tolower(.data$Title)))
+  if (nrow(gho)){
+    dplyr::filter(gho, grepl(tolower(x), tolower(.data$Title)))
+  }
 }
 
 #' @rdname search_gho
@@ -29,6 +31,6 @@ search_dimensions <- function(x) {
 
 #' @rdname search_gho
 #' @export
-search_values <- function(x, dimension = "GHO") {
+search_values <- function(x, dimension = "GHO") {get
   search_gho(get_gho_values(dimension), x)
 }

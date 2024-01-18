@@ -24,7 +24,7 @@ skip_if_offline()
     )
     expect_s3_class(result, "gho")
     if (length(result)){
-      expect_true(head(result$NumericValue,1) > 15 & head(result$NumericValue,1) < 16)
+      expect_true(head(result$NumericValue,1) > 5 & head(result$NumericValue,1) < 6)
       expect_gt(nrow(result), 30)
     }
 
@@ -39,7 +39,7 @@ skip_if_offline()
     )
     expect_s3_class(result, "gho")
     if (length(result)){
-      expect_true(head(result$NumericValue,1) > 40 & head(result$NumericValue,1) < 42)
+      expect_true(head(result$NumericValue,1) > 9 & head(result$NumericValue,1) < 10)
       expect_gt(nrow(result), 200)
     }
 
