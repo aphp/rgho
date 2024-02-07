@@ -43,7 +43,7 @@ get_gho_data <- function(code, filter = NULL) {
   )
 
   resp <- get_gho()$path(code)
-  table <- if (!is.null(filter)){
+  table <- if (!is.null(filter) & (lapply(filter, function(x) length(x)) %>% unlist() %>% sum()) > 0){
     build_gho(resp$filter(list_to_filter(filter)))
   } else {
     build_gho(resp)
