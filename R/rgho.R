@@ -12,7 +12,7 @@
 #'
 #' @importFrom magrittr "%>%"
 #'
-#' @importFrom dplyr select filter
+#' @importFrom dplyr select filter arrange
 #'
 #' @importFrom tibble as_tibble
 #'

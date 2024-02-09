@@ -11,7 +11,10 @@ list_to_filter <- function(x){
     }
     if (names(x[i]) %in% c("SEX")){
       return(list(Dim1Type = names(x[i]),
-                  Dim1 = x[[i]]))
+                  Dim1 = paste0(
+                    "SEX_",
+                    gsub("SEX_", "", x[[i]]))
+                  ))
     } else {
       x[i]
     }

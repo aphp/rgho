@@ -21,7 +21,8 @@ skip_if_offline()
       filter = list(
         YEAR = 2021
       )
-    )
+    ) %>%
+      arrange(Id)
     expect_s3_class(result, "gho")
     if (length(result)){
       expect_true(head(result$NumericValue,1) > 5 & head(result$NumericValue,1) < 6)
@@ -36,7 +37,8 @@ skip_if_offline()
       filter = list(
         COUNTRY = "FRA"
       )
-    )
+    ) %>%
+      arrange(Id)
     expect_s3_class(result, "gho")
     if (length(result)){
       expect_true(head(result$NumericValue,1) > 9 & head(result$NumericValue,1) < 10)
@@ -53,10 +55,11 @@ skip_if_offline()
         REGION = "AFR",
         SEX = "MLE"
       )
-    )
+    ) %>%
+      arrange(Id)
     expect_s3_class(result, "gho")
     if (length(result)){
-      expect_true("25033041" %in% result$Id)
+      expect_true("28518" %in% result$Id)
       expect_gt(nrow(result), 10)
     }
 
