@@ -1,4 +1,7 @@
 # rgho (development version)
+Fix problems with SEX filter. Previously in the API, the value of SEX was either MLE, FMLE or
+BTSX. Now it is SEX_MLE, SEX_FMLE, BTSX
+
 
 # rgho 3.0.0
 This new version of `rgho` now uses the most recent API of the WHO, 
