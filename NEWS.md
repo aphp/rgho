@@ -1,7 +1,5 @@
 # rgho (development version)
-Fix problems with SEX filter. Previously in the API, the value of SEX was either MLE, FMLE or
-BTSX. Now it is SEX_MLE, SEX_FMLE, BTSX
-
+Fix problems with filters. The API changed to provide values preceded with the name of the dimension.
 
 # rgho 3.0.0
 This new version of `rgho` now uses the most recent API of the WHO, 

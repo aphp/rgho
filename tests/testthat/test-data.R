@@ -25,7 +25,7 @@ skip_if_offline()
       arrange(Id)
     expect_s3_class(result, "gho")
     if (length(result)){
-      expect_true(head(result$NumericValue,1) > 5 & head(result$NumericValue,1) < 6)
+      expect_true(head(result$NumericValue,1) > 3 & head(result$NumericValue,1) < 4)
       expect_gt(nrow(result), 30)
     }
 
@@ -41,7 +41,7 @@ skip_if_offline()
       arrange(Id)
     expect_s3_class(result, "gho")
     if (length(result)){
-      expect_true(head(result$NumericValue,1) > 9 & head(result$NumericValue,1) < 10)
+      expect_true(head(result$NumericValue,1) > 50 & head(result$NumericValue,1) < 60)
       expect_gt(nrow(result), 200)
     }
 
@@ -59,7 +59,7 @@ skip_if_offline()
       arrange(Id)
     expect_s3_class(result, "gho")
     if (length(result)){
-      expect_true("28518" %in% result$Id)
+      expect_true("6891564" %in% result$Id)
       expect_gt(nrow(result), 10)
     }
 

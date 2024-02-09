@@ -59,6 +59,10 @@ get_gho_data <- function(code, filter = NULL) {
                                   values_from = dplyr::all_of(gsub("Type", "", x)))
     }
   }
+  for (x in names(table)){
+    table[[x]] <- gsub(paste0(x, "_"), "", table[[x]])
+  }
+
   structure(table, class = c("gho", class(table)),
             url = url)
 }

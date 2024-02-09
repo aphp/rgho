@@ -9,15 +9,20 @@ list_to_filter <- function(x){
       return(list(TimeDimType = names(x[i]),
                   TimeDim = x[[i]]))
     }
-    if (names(x[i]) %in% c("SEX")){
+    # if (names(x[i]) %in% c("SEX")){
+    #   return(list(Dim1Type = names(x[i]),
+    #               Dim1 = x[[i]]))
+    #               # Dim1 = paste0(
+    #               #   "SEX_",
+    #               #   gsub("SEX_", "", x[[i]]))
+    #               # ))
+    # } else {
       return(list(Dim1Type = names(x[i]),
                   Dim1 = paste0(
-                    "SEX_",
-                    gsub("SEX_", "", x[[i]]))
+                    names(x[i]), "_",
+                    gsub(paste0(names(x[i]), "_"), "", x[[i]]))
                   ))
-    } else {
-      x[i]
-    }
+    #}
   })
   res <- unlist(res, recursive = FALSE)
 
